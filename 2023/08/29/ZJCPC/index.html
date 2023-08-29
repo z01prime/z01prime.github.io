@@ -6,13 +6,43 @@
   
   <title>z01prime</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta property="og:type" content="website">
+  <meta name="description" content="title: ZJCPCdate: 2023-08-29 19:43:05tags: 省赛补题，顺序大致按难度(赛时通过人数)排列 CF的gym里暂时还没有今年省赛的题目上传，目前只查到了D&#x2F;F&#x2F;G&#x2F;H&#x2F;I的补题链接2023.08.22 A.Look and Say 签到题，就是相同连续的数字压缩成长度+数字的组合输出 1234567891011121314">
+<meta property="og:type" content="article">
 <meta property="og:title" content="z01prime">
-<meta property="og:url" content="http://example.com/index.html">
+<meta property="og:url" content="http://example.com/2023/08/29/ZJCPC/index.html">
 <meta property="og:site_name" content="z01prime">
+<meta property="og:description" content="title: ZJCPCdate: 2023-08-29 19:43:05tags: 省赛补题，顺序大致按难度(赛时通过人数)排列 CF的gym里暂时还没有今年省赛的题目上传，目前只查到了D&#x2F;F&#x2F;G&#x2F;H&#x2F;I的补题链接2023.08.22 A.Look and Say 签到题，就是相同连续的数字压缩成长度+数字的组合输出 1234567891011121314">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://example.com/2023/08/29/ZJCPC/lookAndSay.png">
+<meta property="og:image" content="http://example.com/2023/08/29/ZJCPC/IntervalSum.png">
+<meta property="og:image" content="http://example.com/2023/08/29/ZJCPC/AWineandFourDishes.png">
+<meta property="og:image" content="http://example.com/2023/08/29/ZJCPC/TurntheLight.png">
+<meta property="og:image" content="http://example.com/2023/08/29/ZJCPC/LazybutDiligent.png">
+<meta property="og:image" content="https://cdn.nlark.com/yuque/__latex/dddcd0a59d9f8ef0e5ce865f40faa44d.svg#card=math&code=x_i%2Cy_i%2Cl_i&id=quRg2">
+<meta property="og:image" content="https://cdn.nlark.com/yuque/__latex/2c7485b5641f2cab00a8b90fb0969433.svg#card=math&code=a_i%2Cb_i%2Cp_i&id=mE4dT">
+<meta property="og:image" content="http://example.com/2023/08/29/ZJCPC/PuzzleKusabi1.png">
+<meta property="og:image" content="http://example.com/2023/08/29/ZJCPC/PuzzleKusabi.png">
+<meta property="og:image" content="http://example.com/2023/08/29/ZJCPC/PuzzleKusabi2.png">
+<meta property="og:image" content="https://cdn.nlark.com/yuque/__latex/39c69fbad0041c1d5caa9acf313cb0e6.svg#card=math&code=p_i&id=LQg4B">
+<meta property="og:image" content="https://cdn.nlark.com/yuque/__latex/5626ac3117511ef16f463c32794092c2.svg#card=math&code=t_i%28t_i%5Cin%20%5Cleft%20%5C%7B%20%22chang%22%2C%22duan%22%2C%22tong%22%2C%22-%22%20%5Cright%20%5C%7D%20%29&id=oWknz">
+<meta property="og:image" content="https://cdn.nlark.com/yuque/__latex/39c69fbad0041c1d5caa9acf313cb0e6.svg#card=math&code=p_i&id=QHBJw">
+<meta property="og:image" content="https://cdn.nlark.com/yuque/__latex/26e255f82b8cc1651e50a820c5a16dc8.svg#card=math&code=t_i&id=AlOrz">
+<meta property="og:image" content="https://cdn.nlark.com/yuque/__latex/3ecb10254af33cc9a6851cf119046f09.svg#card=math&code=S_%7BDuan%7D%20%3D%20%5Cleft%20%5C%7B...i...j...%20%20%5Cright%20%5C%7D%20%2CS_%7BChang%7D%20%3D%20%5Cleft%20%5C%7B...i...j...%20%20%5Cright%20%5C%7D%20&id=MYWpp">
+<meta property="og:image" content="http://example.com/2023/08/29/ZJCPC/PuzzleKusabi3.png">
+<meta property="og:image" content="http://example.com/2023/08/29/ZJCPC/PuzzleKusabi4.png">
+<meta property="og:image" content="http://example.com/2023/08/29/ZJCPC/PuzzleTapa1.png">
+<meta property="og:image" content="http://example.com/2023/08/29/ZJCPC/PuzzleTapa2.png">
+<meta property="og:image" content="http://example.com/2023/08/29/ZJCPC/PuzzleTapa3.png">
+<meta property="og:image" content="http://example.com/2023/08/29/ZJCPC/PuzzleTapa4.png">
+<meta property="og:image" content="https://cdn.nlark.com/yuque/0/2023/png/33547557/1693130954660-4fe2f84d-992d-4b58-be9d-15fe1249064b.png#averageHue=%23fcfaf7&clientId=ud756dee1-b589-4&from=paste&height=650&id=ub18895bb&originHeight=812&originWidth=681&originalType=binary&ratio=1.25&rotation=0&showTitle=false&size=190166&status=done&style=none&taskId=uafd457f7-0b3a-42ee-9378-1df208c1672&title=&width=544.8">
+<meta property="og:image" content="https://cdn.nlark.com/yuque/0/2023/png/33547557/1693131002411-b0b4d62f-ec80-4a88-bfaf-4c5f8970df31.png#averageHue=%23f9f7f5&clientId=ud756dee1-b589-4&from=paste&height=313&id=u127a3a27&originHeight=391&originWidth=683&originalType=binary&ratio=1.25&rotation=0&showTitle=false&size=70163&status=done&style=none&taskId=u88115dd5-8ba2-474b-a9d3-e878cc2710d&title=&width=546.4">
+<meta property="og:image" content="https://cdn.nlark.com/yuque/0/2023/jpeg/33547557/1692270480970-7965cc45-1971-4b20-8a00-878fc9118369.jpeg#clientId=ue0e98666-3ba5-4&from=paste&height=8270&id=zEQLb&originHeight=10338&originWidth=1080&originalType=binary&ratio=1.25&rotation=0&showTitle=false&size=3701159&status=done&style=none&taskId=u731da954-4f60-4bce-a10d-f69f47e5fc2&title=&width=864">
+<meta property="og:image" content="https://cdn.nlark.com/yuque/0/2023/jpeg/33547557/1692270411934-7fd625c6-0e29-4def-a9b5-332ae505c773.jpeg#clientId=ue0e98666-3ba5-4&from=paste&height=11388&id=m5ePi&originHeight=14235&originWidth=1080&originalType=binary&ratio=1.25&rotation=0&showTitle=false&size=4337481&status=done&style=none&taskId=u1bbb8c7d-1dc6-4b22-b9c9-22dabe90d0b&title=&width=864">
+<meta property="article:published_time" content="2023-08-29T11:43:05.276Z">
+<meta property="article:modified_time" content="2023-08-29T13:25:13.147Z">
 <meta property="article:author" content="John Doe">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/2023/08/29/ZJCPC/lookAndSay.png">
   
     <link rel="alternate" href="/atom.xml" title="z01prime" type="application/atom+xml">
   
@@ -71,9 +101,7 @@
 </header>
 
       <div class="outer">
-        <section id="main">
-  
-    <article id="post-ZJCPC" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+        <section id="main"><article id="post-ZJCPC" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
     <a href="/2023/08/29/ZJCPC/" class="article-date">
   <time class="dt-published" datetime="2023-08-29T11:43:05.276Z" itemprop="datePublished">2023-08-29</time>
@@ -156,11 +184,9 @@
     </footer>
   </div>
   
-</article>
-
-
-
+    
   
+</article>
 
 
 </section>
