@@ -4,11 +4,11 @@
   
     
     <entry>
-      <title>test</title>
-      <link href="/2023/08/30/test/"/>
-      <url>/2023/08/30/test/</url>
+      <title>test1</title>
+      <link href="/2023/08/30/test1/"/>
+      <url>/2023/08/30/test1/</url>
       
-        <content type="html"><![CDATA[]]></content>
+        <content type="html"><![CDATA[<p><img src="/2023/08/30/test1/image.png" alt="image"></p>]]></content>
       
       
       
@@ -17,7 +17,26 @@
     
     
     <entry>
-      <title>ZJCPC</title>
+      <title>test</title>
+      <link href="/2023/08/30/test/"/>
+      <url>/2023/08/30/test/</url>
+      
+        <content type="html"><![CDATA[<p><img src="/2023/08/30/test/image1.png"></p>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> 测试 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>20thZJCPC</title>
       <link href="/2023/08/20/ZJCPC/"/>
       <url>/2023/08/20/ZJCPC/</url>
       
@@ -34,8 +53,6 @@
         <tags>
             
             <tag> 浙江 </tag>
-            
-            <tag> 20th </tag>
             
         </tags>
       
