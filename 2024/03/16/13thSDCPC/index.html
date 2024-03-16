@@ -1,0 +1,261 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>13thSDCPC | z01prime</title><meta name="author" content="z01prime"><meta name="copyright" content="z01prime"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="ffffff"><meta name="description" content="vp打到后面打不动了，好在压线银牌。 [SDCPC2023] Matching给定长度为 $n$ 的整数序列 $a_1, a_2, \cdots, a_n$，我们将从该序列中构造出一张无向图 $G$。具体来说，对于所有 $1 \le i &lt; j \le n$，若 $i - j &#x3D; a_i - a_j$，则 $G$ 中将存在一条连接节点 $i$ 与 $j$ 的无向边，其边权为 $(a_i +">
+<meta property="og:type" content="article">
+<meta property="og:title" content="13thSDCPC">
+<meta property="og:url" content="http://example.com/2024/03/16/13thSDCPC/index.html">
+<meta property="og:site_name" content="z01prime">
+<meta property="og:description" content="vp打到后面打不动了，好在压线银牌。 [SDCPC2023] Matching给定长度为 $n$ 的整数序列 $a_1, a_2, \cdots, a_n$，我们将从该序列中构造出一张无向图 $G$。具体来说，对于所有 $1 \le i &lt; j \le n$，若 $i - j &#x3D; a_i - a_j$，则 $G$ 中将存在一条连接节点 $i$ 与 $j$ 的无向边，其边权为 $(a_i +">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png">
+<meta property="article:published_time" content="2024-03-16T02:40:23.000Z">
+<meta property="article:modified_time" content="2024-03-16T02:51:03.546Z">
+<meta property="article:author" content="z01prime">
+<meta property="article:tag" content="山东">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://example.com/2024/03/16/13thSDCPC/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":false,"top_n_per_article":1,"unescape":false,"languages":{"hits_empty":"找不到您查询的内容：${query}","hits_stats":"共找到 ${hits} 篇文章"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":700},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '天',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '13thSDCPC',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: true,
+  isToc: true,
+  postUpdate: '2024-03-16 10:51:03'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+    win.getCSS = (url,id = false) => new Promise((resolve, reject) => {
+      const link = document.createElement('link')
+      link.rel = 'stylesheet'
+      link.href = url
+      if (id) link.id = id
+      link.onerror = reject
+      link.onload = link.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        link.onload = link.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(link)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', 'ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><meta name="generator" content="Hexo 6.3.0"></head><body><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">20</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">10</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">6</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 传送门</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://source.fomal.cc/img/dm8.webp')"><nav id="nav"><span id="blog-info"><a href="/" title="z01prime"><span class="site-name">z01prime</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 传送门</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">13thSDCPC</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2024-03-16T02:40:23.000Z" title="发表于 2024-03-16 10:40:23">2024-03-16</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2024-03-16T02:51:03.546Z" title="更新于 2024-03-16 10:51:03">2024-03-16</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/ICPC%E7%9C%81%E8%B5%9B/">ICPC省赛</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="13thSDCPC"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><p>vp打到后面打不动了，好在压线银牌。</p>
+<h3 id="SDCPC2023-Matching"><a href="#SDCPC2023-Matching" class="headerlink" title="[SDCPC2023] Matching"></a><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P9562?contestId=126525">[SDCPC2023] Matching</a></h3><p>给定长度为 $n$ 的整数序列 $a_1, a_2, \cdots, a_n$，我们将从该序列中构造出一张无向图 $G$。具体来说，对于所有 $1 \le i &lt; j \le n$，若 $i - j = a_i - a_j$，则 $G$ 中将存在一条连接节点 $i$ 与 $j$ 的无向边，其边权为 $(a_i + a_j)$。<br>求 $G$ 的一个匹配，使得该匹配中所有边的边权之和最大，并输出最大边权之和。<br>请回忆：无向图的匹配，指的是从该无向图中选出一些边，使得任意两条边都没有公共的节点。特别地，不选任何边也是一个匹配。</p>
+<p>考了个常见的转化：$i - j = a_i - a_j$改为$i - a_i = j - a_j$然后把权值一样的放在一起就行。<br>可以开一个<code>map&lt;int,vector&lt;int&gt;&gt;</code>来存储，并且注意到后面压进去的一定是a比较大的，所以从后往前遍历如果两两配对就能找到最大的。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">solve</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="type">int</span> n;</span><br><span class="line">	cin &gt;&gt; n;</span><br><span class="line">	<span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">a</span><span class="params">(n)</span></span>;</span><br><span class="line">	map&lt;<span class="type">int</span>, vector&lt;<span class="type">int</span>&gt;&gt; m;</span><br><span class="line">	<span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; n; ++i) cin &gt;&gt; a[i], m[i - a[i]].<span class="built_in">push_back</span>(a[i]);</span><br><span class="line">	<span class="type">int</span> ans = <span class="number">0</span>;</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">auto</span> [x, v] : m)</span><br><span class="line">		<span class="keyword">for</span> (<span class="type">int</span> i = v.<span class="built_in">size</span>() - <span class="number">1</span>; i &gt; <span class="number">0</span>; i -= <span class="number">2</span>) &#123;</span><br><span class="line">			<span class="type">int</span> k = v[i] + v[i - <span class="number">1</span>];</span><br><span class="line">			<span class="keyword">if</span> (k &lt;= <span class="number">0</span>)<span class="keyword">break</span>;</span><br><span class="line">			ans += k;</span><br><span class="line">		&#125;</span><br><span class="line">	cout &lt;&lt; ans &lt;&lt; endl;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="SDCPC2023-Fast-and-Fat"><a href="#SDCPC2023-Fast-and-Fat" class="headerlink" title="[SDCPC2023] Fast and Fat"></a><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P9559?contestId=126525">[SDCPC2023] Fast and Fat</a></h3><p>您正在参加一场团体越野比赛。您的队伍共有 $n$ 名队员，其中第 $i$ 名队员的速度为 $v_i$，体重为 $w_i$。<br>比赛允许每名队员独立行动，也允许一名队员背着另一名队员一起行动。当队员 $i$ 背着队员 $j$ 时，如果队员 $i$ 的体重大于等于队员 $j$，则队员 $i$ 的移动速度不会变化，仍然为 $v_i$；如果队员 $i$ 的体重小于队员 $j$，则队员 $i$ 的移动速度会减去两者的体重差值，即变为 $v_i - (w_j - w_i)$。如果队员 $i$ 的移动速度将变为负数，则队员 $i$ 无法背起队员 $j$。每名队员最多只能背负另一名队员，被背负的队员无法同时背负其他队员。<br>所有未被背负的队员中，最慢的队员的速度，即为整个队伍的速度。求整个队伍能达到的最大速度。</p>
+<p>经典二分作为铜牌题。<br>这个范围(1≤_n_≤10^5)就已经在提示要用O(nlogn)的复杂度过。<br> 最大化最小值，那么考虑二分。<br>首先二分答案，那么速度这个维度就已经定下来了，考虑把速度v作为已知条件，check函数要求在O(n)时间内判断。<br>那么考虑将队员分为两类，第一类是速度达到要求的，那么他们可以背起最重为$w_i+(v_i-v)$的，速度不达标的队员。先记录$w_i+(v_i-v)$，<br>第二类是速度不达标的，需要达标的队员背。考虑贪心的去背，不达标的最重的交给能背起的重量最大的队员背，那就是一个很明显的排序，排完之后再判断一下是不是合法即可</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">solve</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="type">int</span> n, maxn = <span class="number">-1</span>;</span><br><span class="line">	cin &gt;&gt; n;</span><br><span class="line">	<span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">v</span><span class="params">(n)</span>, <span class="title">w</span><span class="params">(n)</span></span>;</span><br><span class="line">	<span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; n; ++i) </span><br><span class="line">		cin &gt;&gt; v[i] &gt;&gt; w[i],maxn = <span class="built_in">max</span>(maxn, v[i]);</span><br><span class="line">	<span class="keyword">auto</span> check = [&amp;](<span class="type">int</span> x)-&gt;<span class="type">bool</span>&#123;</span><br><span class="line">		vector&lt;<span class="type">int</span>&gt; can, cant;</span><br><span class="line">		<span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; n; ++i) </span><br><span class="line">			<span class="keyword">if</span> (v[i] &gt;= x) can.<span class="built_in">push_back</span>(w[i] + (v[i] - x));</span><br><span class="line">			<span class="keyword">else</span> cant.<span class="built_in">push_back</span>(w[i]);</span><br><span class="line">		<span class="keyword">if</span> (<span class="built_in">si</span>(can) &lt; <span class="built_in">si</span>(cant))<span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">		<span class="built_in">sort</span>(<span class="built_in">all</span>(can), <span class="built_in">greater</span>&lt;<span class="type">int</span>&gt;());</span><br><span class="line">		<span class="built_in">sort</span>(<span class="built_in">all</span>(cant), <span class="built_in">greater</span>&lt;<span class="type">int</span>&gt;());</span><br><span class="line"><span class="comment">//		debug</span></span><br><span class="line"><span class="comment">//		cerr&lt;&lt;x&lt;&lt;endl;</span></span><br><span class="line"><span class="comment">//		for(auto i: can) cerr&lt;&lt;i&lt;&lt;&quot; \n&quot;[i == can.back()];</span></span><br><span class="line"><span class="comment">//		for(auto i: cant) cerr&lt;&lt;i&lt;&lt;&quot; \n&quot;[i == cant.back()];</span></span><br><span class="line">		<span class="type">int</span> p1 = <span class="number">0</span>, p2 = <span class="number">0</span>;</span><br><span class="line">		<span class="keyword">while</span> (p1&lt;<span class="built_in">si</span>(can) &amp;&amp; p2&lt;<span class="built_in">si</span>(cant))&#123;</span><br><span class="line">			<span class="keyword">if</span>(can[p1] &gt;= cant[p2])&#123;</span><br><span class="line">				p1++,p2++;</span><br><span class="line">			&#125;<span class="keyword">else</span> <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">return</span> p2 == <span class="built_in">si</span>(cant);</span><br><span class="line">	&#125;;</span><br><span class="line">	<span class="type">int</span> l = <span class="number">0</span>, r = maxn + <span class="number">1</span>;</span><br><span class="line"><span class="comment">//	cerr&lt;&lt;l&lt;&lt;&#x27; &#x27;&lt;&lt;maxn&lt;&lt;endl;</span></span><br><span class="line">	<span class="keyword">while</span> (l + <span class="number">1</span> &lt; r) &#123;</span><br><span class="line">		<span class="type">int</span> mid = (l + r) &gt;&gt; <span class="number">1</span>;</span><br><span class="line">		<span class="keyword">if</span> (<span class="built_in">check</span>(mid)) l = mid;</span><br><span class="line">		<span class="keyword">else</span> r = mid;</span><br><span class="line">	&#125;</span><br><span class="line">	cout &lt;&lt; l &lt;&lt; endl;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>心态崩了：vp的时候思路确实很快就想到了，没想到二分答案写挂了。。右边界一开始定的maxn，后来wa了之后跑了对拍发现是maxn是可以被取到的，所以边界应该是maxn+1，还有没开longlong喜提两次罚时。</p>
+<h3 id="SDCPC2023-Puzzle-Sashigane"><a href="#SDCPC2023-Puzzle-Sashigane" class="headerlink" title="[SDCPC2023] Puzzle: Sashigane"></a><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P9567?contestId=126525">[SDCPC2023] Puzzle: Sashigane</a></h3><p>给定一个 $n$ 行 $n$ 列的网格，网格中包含恰好一个黑色方格，其余方格均为白色。令 $(i, j)$ 表示位于第 $i$ 行第 $j$ 列的格子，这个黑色方格位于 $(b_i, b_j)$。<br>您需要用若干 L 形覆盖所有白色格子，使得每个白色格子都恰好被一个 L 形所覆盖，同时唯一的黑色方格不能被任何 L 形覆盖。L 形不能超过网格的边界。<br>更正式地，网格中的一个 L 形由四个整数 $(r, c, h, w)$ 唯一确定，其中 $(r, c)$ 确定了 L 形的转折点，$h$ 和 $w$ 确定了 L 形两臂的方向和长度。四个整数满足 $1 \le r, c \le n$，$1 \le r + h \le n$，$1 \le c + w \le n$，$h \ne 0$，$w \ne 0$。</p>
+<ul>
+<li>若 $h &lt; 0$，则所有满足 $r + h \le i \le r$ 的格子 $(i, c)$ 均属于该 L 形；否则若 $h &gt; 0$，则所有满足 $r \le i \le r + h$ 的格子 $(i, c)$ 均属于该 L 形。</li>
+<li>若 $w &lt; 0$，则所有满足 $c + w \le j \le c$ 的格子 $(r, j)$ 均属于该 L 形；否则若 $w &gt; 0$，则所有满足 $c \le j \le c + w$ 的格子 $(r, j)$ 均属于该 L 形。</li>
+</ul>
+<p>下图展示了几种 L 形。<br><img src="https://cdn.luogu.com.cn/upload/image_hosting/s4jgji61.png#id=HrWNS&amp;originHeight=324&amp;originWidth=532&amp;originalType=binary&amp;ratio=1&amp;rotation=0&amp;showTitle=false&amp;status=done&amp;style=none&amp;title=" alt><br>构造模拟题，思路也是很好想的，因为一开始有一个方块已经被填了不能填，所以考虑将它周围的也填上，使填上的位置是一个2*2的方块，然后可以将2*2的周围接着填变成3*3的……所以这样就可以了。可以证明这个一定是有解的。<br>实现的时候可以从外往里去填。<br>队伍里有模拟仙人，讲了思路就扔给队友写了，队友的代码</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="comment">//#define int long long</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> per(i,j,k) for(int (i)=(j);(i)&lt;=(k);++(i))</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> rep(i,j,k) for(int (i)=(j);(i)&gt;=(k);--(i))</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> debug(a) cout&lt;&lt;#a&lt;&lt;<span class="string">&quot;=&quot;</span>&lt;&lt;a&lt;&lt;endl</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> all(x) x.begin(),x.end()</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> EX exit(0)</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> fr first</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> se second</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> endl <span class="string">&#x27;\n&#x27;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="keyword">using</span> ll=<span class="type">long</span> <span class="type">long</span>;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> n,bi,bj;</span><br><span class="line"></span><br><span class="line"><span class="keyword">struct</span> <span class="title class_">Node</span>&#123;</span><br><span class="line">    <span class="type">int</span> x,y;</span><br><span class="line">&#125;a,b,c,d;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">bool</span> <span class="title">ok</span><span class="params">(Node x)</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(x.x&gt;=<span class="number">1</span> <span class="keyword">and</span> x.x&lt;=n <span class="keyword">and</span> x.y&gt;=<span class="number">1</span> <span class="keyword">and</span> x.y&lt;=n)<span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">solve</span><span class="params">()</span></span>&#123;</span><br><span class="line">    cin&gt;&gt;n&gt;&gt;bi&gt;&gt;bj;</span><br><span class="line">    a=b=c=d=&#123;bi,bj&#125;;</span><br><span class="line"></span><br><span class="line">    vector&lt;array&lt;<span class="type">int</span>,4&gt;&gt;ans;</span><br><span class="line">    <span class="type">int</span> anscnt=<span class="number">0</span>;</span><br><span class="line">    <span class="comment">//往右上角填</span></span><br><span class="line">    <span class="keyword">while</span>(<span class="literal">true</span>)&#123;</span><br><span class="line">        Node nxt=&#123;b.x<span class="number">-1</span>,b.y+<span class="number">1</span>&#125;;</span><br><span class="line">        <span class="keyword">if</span>(<span class="built_in">ok</span>(nxt))&#123;</span><br><span class="line">            b.x--,b.y++;</span><br><span class="line">            d.y++;</span><br><span class="line">            a.x--;</span><br><span class="line"></span><br><span class="line">            <span class="type">int</span> len=d.x-b.x;</span><br><span class="line">            ans.<span class="built_in">push_back</span>(&#123;b.x,b.y,len,-len&#125;);</span><br><span class="line">            anscnt++;</span><br><span class="line">        &#125;<span class="keyword">else</span> <span class="keyword">break</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//往右下角填</span></span><br><span class="line">    <span class="keyword">while</span>(<span class="literal">true</span>)&#123;</span><br><span class="line">        Node nxt=&#123;d.x+<span class="number">1</span>,d.y+<span class="number">1</span>&#125;;</span><br><span class="line">        <span class="keyword">if</span>(<span class="built_in">ok</span>(nxt))&#123;</span><br><span class="line">            d.x++,d.y++;</span><br><span class="line">            c.x++;</span><br><span class="line">            b.y++;</span><br><span class="line"></span><br><span class="line">            <span class="type">int</span> len=d.x-b.x;</span><br><span class="line">            ans.<span class="built_in">push_back</span>(&#123;d.x,d.y,-len,-len&#125;);</span><br><span class="line">            anscnt++;</span><br><span class="line">        &#125;<span class="keyword">else</span> <span class="keyword">break</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//往左上角填</span></span><br><span class="line">    <span class="keyword">while</span>(<span class="literal">true</span>)&#123;</span><br><span class="line">        Node nxt=&#123;a.x<span class="number">-1</span>,a.y<span class="number">-1</span>&#125;;</span><br><span class="line">        <span class="keyword">if</span>(<span class="built_in">ok</span>(nxt))&#123;</span><br><span class="line">            a.x--,a.y--;</span><br><span class="line">            c.y--;</span><br><span class="line">            b.x--;</span><br><span class="line"></span><br><span class="line">            <span class="type">int</span> len=c.x-a.x;</span><br><span class="line">            ans.<span class="built_in">push_back</span>(&#123;a.x,a.y,len,len&#125;);</span><br><span class="line">            anscnt++;</span><br><span class="line">        &#125;<span class="keyword">else</span> <span class="keyword">break</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//往左下角填</span></span><br><span class="line">    <span class="keyword">while</span>(<span class="literal">true</span>)&#123;</span><br><span class="line">        Node nxt=&#123;c.x+<span class="number">1</span>,c.y<span class="number">-1</span>&#125;;</span><br><span class="line">        <span class="keyword">if</span>(<span class="built_in">ok</span>(nxt))&#123;</span><br><span class="line">            c.x++,c.y--;</span><br><span class="line">            a.y--;</span><br><span class="line">            d.x++;</span><br><span class="line"></span><br><span class="line">            <span class="type">int</span> len=c.x-a.x;</span><br><span class="line">            ans.<span class="built_in">push_back</span>(&#123;c.x,c.y,-len,len&#125;);</span><br><span class="line">            anscnt++;</span><br><span class="line">        &#125;<span class="keyword">else</span> <span class="keyword">break</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    cout&lt;&lt;<span class="string">&quot;Yes&quot;</span>&lt;&lt;endl;</span><br><span class="line">    cout&lt;&lt;anscnt&lt;&lt;endl;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">auto</span> i:ans)&#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">auto</span> j:i)cout&lt;&lt;j&lt;&lt;<span class="string">&quot; &quot;</span>;</span><br><span class="line">        cout&lt;&lt;endl;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="SDCPC2023-Math-Problem"><a href="#SDCPC2023-Math-Problem" class="headerlink" title="[SDCPC2023] Math Problem"></a><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P9560?contestId=126525">[SDCPC2023] Math Problem</a></h3><p>给定两个正整数 $n$ 和 $k$，您可以进行以下两种操作任意次（包括零次）：</p>
+<ul>
+<li>选择一个整数 $x$ 满足 $0 \leq x &lt; k$，将 $n$ 变为 $k\cdot n+x$。该操作每次花费 $a$ 枚金币。每次选择的整数 $x$ 可以不同。</li>
+<li>将 $n$ 变为 $\lfloor \frac{n}{k} \rfloor$。该操作每次花费 $b$ 枚金币。其中 $\lfloor \frac{n}{k} \rfloor$ 表示小于等于 $\frac{n}{k}$ 的最大整数。</li>
+</ul>
+<p>给定正整数 $m$，求将 $n$ 变为 $m$ 的倍数最少需要花费几枚金币，无解输出-1。请注意：$0$ 是任何正整数的倍数。</p>
+<p>比赛没切，有点累剩一个小时吃饭去了。<br>可以发现一定是先除后乘，不然会浪费掉乘法的操作。<br>当时也没细想后来一看这个除法和乘法都是log级别的，那直接枚举就行<br>设除完之后的数是n，那么在经过m次乘法之后，能取到的值是一个区间：$[n^m,n^m+k^m-1]$然后只要判断这个范围内有没有m的倍数即可，做完了。<br>还有就是要开__int128不然会爆。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">solve</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="type">int</span> n,k,m,a,b;</span><br><span class="line">	cin&gt;&gt;n&gt;&gt;k&gt;&gt;m&gt;&gt;a&gt;&gt;b;</span><br><span class="line">	<span class="keyword">if</span>(n%m==<span class="number">0</span>) <span class="keyword">return</span> cout&lt;&lt;<span class="number">0</span>&lt;&lt;endl,<span class="built_in">void</span>();</span><br><span class="line">	<span class="keyword">if</span>(k==<span class="number">1</span>) <span class="keyword">return</span> cout&lt;&lt;<span class="number">-1</span>&lt;&lt;endl,<span class="built_in">void</span>();</span><br><span class="line">	<span class="type">int</span> division = <span class="number">1</span>,ans = INT64_MAX,cost = <span class="number">0</span>;</span><br><span class="line">	<span class="keyword">while</span>(<span class="literal">true</span>)&#123;</span><br><span class="line">		<span class="keyword">if</span>(!n)&#123;</span><br><span class="line">			ans = <span class="built_in">min</span>(ans , cost);</span><br><span class="line">			<span class="keyword">break</span>;</span><br><span class="line">		&#125;</span><br><span class="line">		__int128 l = n , r = n;</span><br><span class="line">		<span class="type">int</span> cnt = <span class="number">0</span>;</span><br><span class="line">		<span class="keyword">while</span>(l % m &amp;&amp; l / m == r / m)&#123;</span><br><span class="line">			r = r*k + k<span class="number">-1</span>;</span><br><span class="line">			l *= k;</span><br><span class="line">			cnt++;</span><br><span class="line">		&#125;</span><br><span class="line">		ans = <span class="built_in">min</span>(ans , cost + cnt*a);</span><br><span class="line">		n /= k;</span><br><span class="line">		cost += b;</span><br><span class="line">	&#125;</span><br><span class="line">	cout&lt;&lt;ans&lt;&lt;endl;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>先这样吧有空再把GDCPC还有剩下几道金银牌题补了。</p>
+<p>还要加训不然很危险，还剩一个月ZJCPC再炸真就考虑退役了。</p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="http://example.com">z01prime</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a target="_blank" rel="noopener" href="http://z01prime.github.io/2024/03/16/13thSDCPC/">http://z01prime.github.io/2024/03/16/13thSDCPC/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://example.com" target="_blank">z01prime</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E5%B1%B1%E4%B8%9C/">山东</a></div><div class="post_share"><div class="social-share" data-image="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="next-post pull-full"><a href="/2024/03/04/%E3%80%90LGR-174-Div-2%E3%80%91T2%E3%80%81T3/" title="【LGR-174-Div.2】T2、T3"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">【LGR-174-Div.2】T2、T3</div></div></a></div></nav><hr class="custom-hr"/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div id="gitalk-container"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">z01prime</div><div class="author-info__description"></div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">20</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">10</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">6</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/z01prime"><i class="fab fa-github"></i><span>我的github主页</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/z01prime" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="mailto:z7296091@gmail.com" target="_blank" title="Email"><i class="fas fa-envelope"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">加载慢可以挂个梯子试试捏</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#SDCPC2023-Matching"><span class="toc-number">1.</span> <span class="toc-text">[SDCPC2023] Matching</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#SDCPC2023-Fast-and-Fat"><span class="toc-number">2.</span> <span class="toc-text">[SDCPC2023] Fast and Fat</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#SDCPC2023-Puzzle-Sashigane"><span class="toc-number">3.</span> <span class="toc-text">[SDCPC2023] Puzzle: Sashigane</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#SDCPC2023-Math-Problem"><span class="toc-number">4.</span> <span class="toc-text">[SDCPC2023] Math Problem</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/03/16/13thSDCPC/" title="13thSDCPC">13thSDCPC</a><time datetime="2024-03-16T02:40:23.000Z" title="发表于 2024-03-16 10:40:23">2024-03-16</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/03/04/%E3%80%90LGR-174-Div-2%E3%80%91T2%E3%80%81T3/" title="【LGR-174-Div.2】T2、T3">【LGR-174-Div.2】T2、T3</a><time datetime="2024-03-04T14:37:46.000Z" title="发表于 2024-03-04 22:37:46">2024-03-04</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/02/15/ICPC2023-HangZhou-R-%E7%AD%BE%E5%88%B0-%E9%93%9C%E7%89%8C%E9%A2%98/" title="ICPC2023 HangZhou R 签到+铜牌题">ICPC2023 HangZhou R 签到+铜牌题</a><time datetime="2024-02-15T04:00:33.000Z" title="发表于 2024-02-15 12:00:33">2024-02-15</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/02/13/01%E5%AD%97%E5%85%B8%E6%A0%91/" title="01字典树">01字典树</a><time datetime="2024-02-13T03:54:17.000Z" title="发表于 2024-02-13 11:54:17">2024-02-13</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/02/09/%E6%A0%B9%E5%8F%B7%E5%88%86%E6%B2%BB/" title="根号分治">根号分治</a><time datetime="2024-02-09T03:22:55.000Z" title="发表于 2024-02-09 11:22:55">2024-02-09</time></div></div></div></div></div></div></main><footer id="footer" style="background-image: url('https://source.fomal.cc/img/dm8.webp')"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2024 By z01prime</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="直达评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"><script>if (!window.MathJax) {
+  window.MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      tags: 'ams'
+    },
+    chtml: {
+      scale: 1.1
+    },
+    options: {
+      renderActions: {
+        findScript: [10, doc => {
+          for (const node of document.querySelectorAll('script[type^="math/tex"]')) {
+            const display = !!node.type.match(/; *mode=display/)
+            const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display)
+            const text = document.createTextNode('')
+            node.parentNode.replaceChild(text, node)
+            math.start = {node: text, delim: '', n: 0}
+            math.end = {node: text, delim: '', n: 0}
+            doc.math.push(math)
+          }
+        }, '']
+      }
+    }
+  }
+  
+  const script = document.createElement('script')
+  script.src = 'https://cdn.jsdelivr.net/npm/mathjax/es5/tex-mml-chtml.min.js'
+  script.id = 'MathJax-script'
+  script.async = true
+  document.head.appendChild(script)
+} else {
+  MathJax.startup.document.state(0)
+  MathJax.texReset()
+  MathJax.typesetPromise()
+}</script><script>function loadGitalk () {
+  function initGitalk () {
+    var gitalk = new Gitalk(Object.assign({
+      clientID: 'e8f61b4db601b696558e',
+      clientSecret: '2f5cacaf3b111d5db02b1b40be93f02553bf9aa4',
+      repo: 'commetForGitalk',
+      owner: 'z01prime',
+      admin: ['z01prime'],
+      id: '14c00df21653e03732e17a33d67dee3b',
+      updateCountCallback: commentCount
+    },null))
+
+    gitalk.render('gitalk-container')
+  }
+
+  if (typeof Gitalk === 'function') initGitalk()
+  else {
+    getCSS('https://cdn.jsdelivr.net/npm/gitalk/dist/gitalk.min.css')
+    getScript('https://cdn.jsdelivr.net/npm/gitalk/dist/gitalk.min.js').then(initGitalk)
+  }
+}
+
+function commentCount(n){
+  let isCommentCount = document.querySelector('#post-meta .gitalk-comment-count')
+  if (isCommentCount) {
+    isCommentCount.textContent= n
+  }
+}
+
+if ('Gitalk' === 'Gitalk' || !true) {
+  if (true) btf.loadComment(document.getElementById('gitalk-container'), loadGitalk)
+  else loadGitalk()
+} else {
+  function loadOtherComment () {
+    loadGitalk()
+  }
+}</script></div><script id="canvas_nest" defer="defer" color="0,0,255" opacity="0.7" zIndex="-1" count="25" mobile="false" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/canvas-nest.min.js"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div class="no-result" id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js"></script></div></div></body></html>
