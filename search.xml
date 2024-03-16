@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>整除分块</title>
+      <link href="/2024/03/16/%E6%95%B4%E9%99%A4%E5%88%86%E5%9D%97/"/>
+      <url>/2024/03/16/%E6%95%B4%E9%99%A4%E5%88%86%E5%9D%97/</url>
+      
+        <content type="html"><![CDATA[<p>好像只能用来解决一个类似于$\sum^n_{i = 1}\left \lfloor \frac{n}{i}  \right \rfloor$这样的整数求和问题，只要是带这个的，那么复杂度最低就能降到根号级别的。<br>可以发现，比如n =  8这个求和的每一项是这样的</p><div class="table-container"><table><thead><tr><th>i</th><th>1</th><th>2</th><th>3</th><th>4</th><th>5</th><th>6</th><th>7</th><th>8</th></tr></thead><tbody><tr><td>8/i</td><td>8</td><td>4</td><td>2</td><td>2</td><td>1</td><td>1</td><td>1</td><td>1</td></tr></tbody></table></div><p>那么就可以优化，把结果一样的放在一起分块处理。<br>分的块大概有$2\sqrt{n}$个，因为当i小于等于$\sqrt{n}$时，取值一共有$\sqrt{n}$种，大于也是一样的</p><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> (<span class="type">int</span> l = <span class="number">1</span>; l &lt;= n; ++l) &#123;</span><br><span class="line"><span class="type">int</span> d = n / l, r = n/d;</span><br><span class="line">ans += (r-l+<span class="number">1</span>)*d;</span><br><span class="line">l = r;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>l和r表示这个区间内的数x除n都是d，即<code>n/x = d</code>，累加即可，复杂度是根号的。</p><h3 id="CQOI2007-余数求和"><a href="#CQOI2007-余数求和" class="headerlink" title="[CQOI2007] 余数求和"></a><a href="https://www.luogu.com.cn/problem/P2261">[CQOI2007] 余数求和</a></h3><p>给出正整数 $n$ 和 $k$，请计算<br>$G(n, k) = \sum_{i = 1}^n k \bmod i$<br>其中 $k\bmod i$ 表示 $k$ 除以 $i$ 的余数。<br>因为<code>k mod i = k - (k/i)*i</code>,考虑整除分块。因为(k/i)是等于d的，所以在l和r之间是一个等差数列，然后对着等差数列求和即可。<br>分两种情况，第一种n小于等于k，那就直接做就行。注意r不能大于n，所以还要和n取min。<br>第二种是n大于k，那么推一下式子：<br>$G(n, k) = \sum_{i = 1}^n k \bmod i = \sum_{i = 1}^n k-\left \lfloor \frac{k}{i}  \right \rfloor <em>i=nk - \sum_{i = 1}^n\left \lfloor \frac{k}{i}  \right \rfloor </em>i=nk-\sum_{i = 1}^k\left \lfloor \frac{k}{i}  \right \rfloor <em>i - \sum_{i = k+1}^n\left \lfloor \frac{k}{i}  \right \rfloor </em>i  = nk - \sum_{i = 1}^k\left \lfloor \frac{k}{i}  \right \rfloor <em>i-0= nk - \sum_{i = 1}^k\left \lfloor \frac{k}{i}  \right \rfloor </em>i$<br>做法和第一种类似，或者分开看利用最后一个式子</p><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">solve</span><span class="params">()</span> </span>&#123;</span><br><span class="line"><span class="type">int</span> n, k, ans = <span class="number">0</span>;</span><br><span class="line">cin &gt;&gt; n &gt;&gt; k;</span><br><span class="line"><span class="keyword">if</span> (n &lt;= k) &#123;</span><br><span class="line"><span class="keyword">for</span> (<span class="type">int</span> l = <span class="number">1</span>; l &lt;= n; ++l) &#123;</span><br><span class="line"><span class="type">int</span> d = k / l, r = <span class="built_in">min</span>(n, k / d);</span><br><span class="line">ans += (k - d * l + k - d * r) * (r - l + <span class="number">1</span>) / <span class="number">2</span>;</span><br><span class="line">l = r;</span><br><span class="line">&#125;</span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line"><span class="type">int</span> cnt = <span class="number">0</span>;</span><br><span class="line"><span class="keyword">for</span> (<span class="type">int</span> l = <span class="number">1</span>; l &lt;= k; ++l) &#123;</span><br><span class="line"><span class="type">int</span> d = k / l, r = k / d;</span><br><span class="line">cnt += (k - d * l + k - d * r) * (r - l + <span class="number">1</span>) / <span class="number">2</span>;</span><br><span class="line">l = r;</span><br><span class="line">&#125;</span><br><span class="line">ans = cnt + (n - k) * k;</span><br><span class="line">&#125;</span><br><span class="line">cout &lt;&lt; ans &lt;&lt; endl;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>可能以后学积性函数要用到这个</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 一些小算法和算法思想 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 整除分块 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>13thSDCPC</title>
       <link href="/2024/03/16/13thSDCPC/"/>
       <url>/2024/03/16/13thSDCPC/</url>
