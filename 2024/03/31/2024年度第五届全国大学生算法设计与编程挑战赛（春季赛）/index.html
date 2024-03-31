@@ -1,0 +1,275 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>2024年度第五届全国大学生算法设计与编程挑战赛（春季赛） | z01prime</title><meta name="author" content="z01prime"><meta name="copyright" content="z01prime"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="ffffff"><meta name="description" content="H 密码是多少？注意字符串长度都是7样例1 1asdfghj 110210310410697115100 样例2 1qazxcdf 11209910010211397122 按题意模拟即可 1234567void solve() &amp;#123;	string s;	cin&gt;&gt;s;	string t &#x3D; s.substr(3) + s.substr(0,3);	for(auto c : t">
+<meta property="og:type" content="article">
+<meta property="og:title" content="2024年度第五届全国大学生算法设计与编程挑战赛（春季赛）">
+<meta property="og:url" content="http://example.com/2024/03/31/2024%E5%B9%B4%E5%BA%A6%E7%AC%AC%E4%BA%94%E5%B1%8A%E5%85%A8%E5%9B%BD%E5%A4%A7%E5%AD%A6%E7%94%9F%E7%AE%97%E6%B3%95%E8%AE%BE%E8%AE%A1%E4%B8%8E%E7%BC%96%E7%A8%8B%E6%8C%91%E6%88%98%E8%B5%9B%EF%BC%88%E6%98%A5%E5%AD%A3%E8%B5%9B%EF%BC%89/index.html">
+<meta property="og:site_name" content="z01prime">
+<meta property="og:description" content="H 密码是多少？注意字符串长度都是7样例1 1asdfghj 110210310410697115100 样例2 1qazxcdf 11209910010211397122 按题意模拟即可 1234567void solve() &amp;#123;	string s;	cin&gt;&gt;s;	string t &#x3D; s.substr(3) + s.substr(0,3);	for(auto c : t">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png">
+<meta property="article:published_time" content="2024-03-31T08:09:26.000Z">
+<meta property="article:modified_time" content="2024-03-31T08:13:04.964Z">
+<meta property="article:author" content="z01prime">
+<meta property="article:tag" content="cdpc">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://example.com/2024/03/31/2024%E5%B9%B4%E5%BA%A6%E7%AC%AC%E4%BA%94%E5%B1%8A%E5%85%A8%E5%9B%BD%E5%A4%A7%E5%AD%A6%E7%94%9F%E7%AE%97%E6%B3%95%E8%AE%BE%E8%AE%A1%E4%B8%8E%E7%BC%96%E7%A8%8B%E6%8C%91%E6%88%98%E8%B5%9B%EF%BC%88%E6%98%A5%E5%AD%A3%E8%B5%9B%EF%BC%89/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":false,"top_n_per_article":1,"unescape":false,"languages":{"hits_empty":"找不到您查询的内容：${query}","hits_stats":"共找到 ${hits} 篇文章"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":700},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '天',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '2024年度第五届全国大学生算法设计与编程挑战赛（春季赛）',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: true,
+  isToc: true,
+  postUpdate: '2024-03-31 16:13:04'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+    win.getCSS = (url,id = false) => new Promise((resolve, reject) => {
+      const link = document.createElement('link')
+      link.rel = 'stylesheet'
+      link.href = url
+      if (id) link.id = id
+      link.onerror = reject
+      link.onload = link.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        link.onload = link.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(link)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', 'ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><meta name="generator" content="Hexo 6.3.0"></head><body><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">24</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">14</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">7</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 传送门</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://source.fomal.cc/img/dm8.webp')"><nav id="nav"><span id="blog-info"><a href="/" title="z01prime"><span class="site-name">z01prime</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 传送门</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">2024年度第五届全国大学生算法设计与编程挑战赛（春季赛）</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2024-03-31T08:09:26.000Z" title="发表于 2024-03-31 16:09:26">2024-03-31</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2024-03-31T08:13:04.964Z" title="更新于 2024-03-31 16:13:04">2024-03-31</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E5%B0%8F%E6%AF%94%E8%B5%9B/">小比赛</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="2024年度第五届全国大学生算法设计与编程挑战赛（春季赛）"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h3 id="H-密码是多少？"><a href="#H-密码是多少？" class="headerlink" title="H 密码是多少？"></a>H 密码是多少？</h3><p><img src="https://s2.loli.net/2024/03/31/8FSYsa9meEoTDuO.png#id=Ar6Tr&amp;originHeight=651&amp;originWidth=940&amp;originalType=binary&amp;ratio=1&amp;rotation=0&amp;showTitle=false&amp;status=done&amp;style=none&amp;title=" alt><br>注意字符串长度都是7<br>样例1</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">asdfghj</span><br></pre></td></tr></table></figure>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">10210310410697115100</span></span><br></pre></td></tr></table></figure>
+<p>样例2</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">qazxcdf</span><br></pre></td></tr></table></figure>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1209910010211397122</span></span><br></pre></td></tr></table></figure>
+<p>按题意模拟即可</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">solve</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	string s;</span><br><span class="line">	cin&gt;&gt;s;</span><br><span class="line">	string t = s.<span class="built_in">substr</span>(<span class="number">3</span>) + s.<span class="built_in">substr</span>(<span class="number">0</span>,<span class="number">3</span>);</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">auto</span> c : t)</span><br><span class="line">		cout&lt;&lt;(<span class="type">int</span>)c;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="A-送个分吧"><a href="#A-送个分吧" class="headerlink" title="A 送个分吧"></a>A 送个分吧</h3><p><img src="https://s2.loli.net/2024/03/31/RWn1sGQ7Uha9Al5.png#id=wqZ2N&amp;originHeight=924&amp;originWidth=925&amp;originalType=binary&amp;ratio=1&amp;rotation=0&amp;showTitle=false&amp;status=done&amp;style=none&amp;title=" alt><br>样例</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">aba</span><br><span class="line"><span class="number">4</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">b</span><br></pre></td></tr></table></figure>
+<p>对于给定的样例，前 4 简单的套题分别为：a、ab、aba、b，故答案为 b。<br>对于 100%的数据，1≤∣_s_∣≤5000,1≤_k_≤5，保证答案存在。</p>
+<p>就是在问你字典序第k小的子串<br>s的范围决定了这道题最多只能是$O(n^2)$的复杂度。<br>可以这样考虑，比如对于样例而言，前几个子串一定是a开头的，可以是a,ab,aba。那么猜想前面几个一定是字符串中出现的字典序最小的那个字符的某个后缀，比如最小的是a,第二小的是ab(第一个a后面长度为2的后缀),第三小的是aba（第一个a后面长度为3的后缀）。且是长度越小的后缀就一定字典序越小<br>那么因为出现的字典序最小的那个字符会有很多个，比如样例就是a出现在了第一个和第三个位置。<br>那么所有以a为开头的后缀有a,ab,aba(第一个a能得到的后缀),a（第二个a得到的后缀），发现有重复的情况。所以可以开set去重。</p>
+<p>比如有一个字符串abcaac.先用平方复杂度求出每个位置的后缀:<br>1:abcaac<br>2:bcaac<br>3:caac<br>4:aac<br>5:ac<br>6:c<br>然后对这些字符串按字典序排序。<br>4:aac<br>1:abcaac<br>5:ac<br>2:bcaac<br>6:c<br>3:caac<br>那么字典序第1小的子串就是a,第二小的是aa，第三小的是aac……<br>排序可以用map自动排序，然后找第k小的时候用set去重</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="comment">//#define endl &#x27;\n&#x27;</span></span><br><span class="line"><span class="comment">//#define int long long</span></span><br><span class="line"><span class="comment">//#define N 1003</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> fi first</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> se second</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> si(x) (int)(x.size())</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> all(x) x.begin(),x.end()</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> debug cout&lt;&lt;<span class="string">&quot;*******\n&quot;</span>;</span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="keyword">typedef</span> pair&lt;<span class="type">int</span>, <span class="type">int</span>&gt; PII;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">solve</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	string s;</span><br><span class="line">	<span class="type">int</span> k;</span><br><span class="line">	cin&gt;&gt;s&gt;&gt;k;</span><br><span class="line">	map&lt;string,<span class="type">int</span>&gt; mp;</span><br><span class="line">	set&lt;string&gt; st;</span><br><span class="line">	<span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>;i&lt;<span class="built_in">si</span>(s);++i)&#123;</span><br><span class="line">		mp[s.<span class="built_in">substr</span>(i)] = <span class="number">1</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="type">int</span> cnt = <span class="number">0</span>;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">auto</span> [str,v]:mp)&#123;</span><br><span class="line">		<span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">1</span>;i&lt;=<span class="built_in">si</span>(str);++i)&#123;</span><br><span class="line">			string t = str.<span class="built_in">substr</span>(<span class="number">0</span>,i);</span><br><span class="line">			<span class="keyword">if</span>(st.<span class="built_in">count</span>(t))<span class="keyword">continue</span>;</span><br><span class="line">			cnt++;</span><br><span class="line">			st.<span class="built_in">insert</span>(t);</span><br><span class="line">			<span class="keyword">if</span>(cnt == k) <span class="keyword">return</span> cout&lt;&lt;t&lt;&lt;endl,<span class="built_in">void</span>();</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="E-语言学习中"><a href="#E-语言学习中" class="headerlink" title="E 语言学习中"></a>E 语言学习中</h3><p><img src="https://s2.loli.net/2024/03/31/BfKLgsRpVimIlYM.png#id=gNfqR&amp;originHeight=1146&amp;originWidth=932&amp;originalType=binary&amp;ratio=1&amp;rotation=0&amp;showTitle=false&amp;status=done&amp;style=none&amp;title=" alt><br>对于 100%100% 的数据，1≤∣S∣,∣T∣≤10^5,1≤q≤10^6.<br>样例一</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">H</span><br><span class="line">X</span><br><span class="line"><span class="number">1</span></span><br><span class="line"><span class="number">1</span> <span class="number">1</span> <span class="number">1</span> <span class="number">1</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">NO</span><br></pre></td></tr></table></figure>
+<p>样例二</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">XXXHHHHXH</span><br><span class="line">XXXXH</span><br><span class="line"><span class="number">4</span></span><br><span class="line"><span class="number">7</span> <span class="number">9</span> <span class="number">2</span> <span class="number">5</span></span><br><span class="line"><span class="number">7</span> <span class="number">9</span> <span class="number">1</span> <span class="number">4</span></span><br><span class="line"><span class="number">1</span> <span class="number">7</span> <span class="number">2</span> <span class="number">5</span></span><br><span class="line"><span class="number">1</span> <span class="number">7</span> <span class="number">2</span> <span class="number">4</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">YES</span><br><span class="line">NO</span><br><span class="line">YES</span><br><span class="line">NO</span><br></pre></td></tr></table></figure>
+<p>一开始看这范围还以为要什么数据结构。其实就是一个前缀和问题。<br>因为一个X能变成两个H，不妨将所有的X都变成H最后只要判断区间内有多少个H就行，如果s和t之间H相差的位数能够被3整除，那么就一定是合法的因为题目说了可以在任意的地方删掉三个H。</p>
+<p>令sum1[i]表示s的i位之前有多少个H，sum2[i]表示t的i位之前有多少个H，跑一遍前缀和然后判断即可。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">solve</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	string s, t;</span><br><span class="line">	cin &gt;&gt; s &gt;&gt; t;</span><br><span class="line">	<span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">sum1</span><span class="params">(<span class="number">100001</span>)</span>, <span class="title">sum2</span><span class="params">(<span class="number">100001</span>)</span></span>;</span><br><span class="line">	<span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt;= s.<span class="built_in">size</span>(); ++i) &#123;</span><br><span class="line">		sum1[i] = sum1[i - <span class="number">1</span>];</span><br><span class="line">		<span class="keyword">if</span> (s[i - <span class="number">1</span>] == <span class="string">&#x27;H&#x27;</span>)sum1[i]++;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt;= t.<span class="built_in">size</span>(); ++i) &#123;</span><br><span class="line">		sum2[i] = sum2[i - <span class="number">1</span>];</span><br><span class="line">		<span class="keyword">if</span> (t[i - <span class="number">1</span>] == <span class="string">&#x27;H&#x27;</span>)sum2[i]++;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="type">int</span> q;</span><br><span class="line">	cin &gt;&gt; q;</span><br><span class="line">	<span class="keyword">while</span> (q--) &#123;</span><br><span class="line">		<span class="type">int</span> l1, r1, l2, r2, len1, len2, h1, h2;</span><br><span class="line">		cin &gt;&gt; l1 &gt;&gt; r1 &gt;&gt; l2 &gt;&gt; r2;</span><br><span class="line">		len1 = r1 - l1 + <span class="number">1</span>, len2 = r2 - l2 + <span class="number">1</span>;</span><br><span class="line">		h1 = sum1[r1] - sum2[l1 - <span class="number">1</span>];</span><br><span class="line">		h2 = sum2[r2] - sum2[l2 - <span class="number">1</span>];</span><br><span class="line">		len1 -= h1, len2 -= h2;</span><br><span class="line">		h1 += len1 * <span class="number">2</span>;</span><br><span class="line">		h2 += len2 * <span class="number">2</span>;</span><br><span class="line">		<span class="keyword">if</span> (<span class="built_in">abs</span>(h1 - h2) % <span class="number">3</span> == <span class="number">0</span>) cout &lt;&lt; <span class="string">&quot;YES&quot;</span> &lt;&lt; endl;</span><br><span class="line">		<span class="keyword">else</span> cout &lt;&lt; <span class="string">&quot;NO&quot;</span> &lt;&lt; endl;</span><br><span class="line">	&#125;	</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="G-随机汉堡店"><a href="#G-随机汉堡店" class="headerlink" title="G 随机汉堡店"></a>G 随机汉堡店</h3><p><img src="https://s2.loli.net/2024/03/31/ZXjtgbI7rdLJ4Qi.png#id=igIZV&amp;originHeight=906&amp;originWidth=918&amp;originalType=binary&amp;ratio=1&amp;rotation=0&amp;showTitle=false&amp;status=done&amp;style=none&amp;title=" alt><br>样例一</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">5</span> <span class="number">5</span> <span class="number">2</span></span><br><span class="line"><span class="number">2</span> <span class="number">2</span> <span class="number">5</span> <span class="number">5</span> <span class="number">2</span> </span><br><span class="line"><span class="number">2</span> <span class="number">1</span> <span class="number">10</span> <span class="number">9</span> <span class="number">9</span> </span><br></pre></td></tr></table></figure>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">31</span></span><br></pre></td></tr></table></figure>
+<p>样例二</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">5</span> <span class="number">5</span> <span class="number">2</span></span><br><span class="line"><span class="number">5</span> <span class="number">1</span> <span class="number">2</span> <span class="number">4</span> <span class="number">4</span> </span><br><span class="line"><span class="number">7</span> <span class="number">9</span> <span class="number">8</span> <span class="number">5</span> <span class="number">6</span> </span><br></pre></td></tr></table></figure>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">11</span></span><br></pre></td></tr></table></figure>
+<p>对于所有的数据，$2≤p≤n≤10^6,1≤k≤10^6,1≤t_x≤k,1≤d_x≤10^9$。</p>
+<p>一个很简单的dp。不知道为啥B题的博弈论要过的人多感觉B难多了。</p>
+<p><code>dp[i]</code>表示当前第i个食材以及前面所有的食材能够达到的最大值。那么第i号点只能由前面的和i号位置的这个食材种类相同的食材转移过来，也就是<br>$dp[i] = max(dp[i],dp[j-1] + \sum_{k = j}^id[k])$<br>其中j是在i之前的所有和i种类相同的食材所在的位置，也就是说在位置是j-1的以及所有在j-1前面的位置能达到的最大值加上j-i都作为一个汉堡的食材能达到的最大值，一步一步dp过去即可。<br>转移方程里面的求和可以用前缀和优化。<br>需要注意的是题目有个条件是食材数量不能小于p，所以枚举的j要满足i-j+1&gt;=p。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">solve</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="type">int</span> n, k, p;</span><br><span class="line">    cin &gt;&gt; n &gt;&gt; k &gt;&gt; p;</span><br><span class="line">    <span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">t</span><span class="params">(n+<span class="number">5</span>)</span>,<span class="title">d</span><span class="params">(n+<span class="number">5</span>)</span>,<span class="title">dp</span><span class="params">(n+<span class="number">5</span>)</span>,<span class="title">sum</span><span class="params">(n+<span class="number">5</span>)</span></span>;</span><br><span class="line">    <span class="comment">// num记录t[i]的位置</span></span><br><span class="line">    vector&lt;vector&lt;<span class="type">int</span>&gt;&gt; <span class="built_in">num</span>(n+<span class="number">5</span>);</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt;= n; ++i)</span><br><span class="line">        cin &gt;&gt; t[i],num[t[i]].<span class="built_in">push_back</span>(i);</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt;= n; ++i)</span><br><span class="line">        cin &gt;&gt; d[i],sum[i] = sum[i - <span class="number">1</span>] + d[i];</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt;= n; ++i) &#123;</span><br><span class="line">        dp[i] = dp[i - <span class="number">1</span>];</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">auto</span> j: num[t[i]]) &#123;</span><br><span class="line">            <span class="keyword">if</span> (j == i)<span class="keyword">break</span>;</span><br><span class="line">            <span class="type">int</span> len = i - j + <span class="number">1</span>;</span><br><span class="line">            <span class="keyword">if</span>(len&lt;p)<span class="keyword">continue</span>;</span><br><span class="line">            dp[i] = <span class="built_in">max</span>(dp[i], dp[j - <span class="number">1</span>] + sum[i] - sum[j - <span class="number">1</span>]);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    cout &lt;&lt; dp[n];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="B-客气小孩哥"><a href="#B-客气小孩哥" class="headerlink" title="B 客气小孩哥"></a>B 客气小孩哥</h3><p><img src="https://s2.loli.net/2024/03/31/ur3W1niV7Q9s2Ly.png#id=Zp0sx&amp;originHeight=750&amp;originWidth=935&amp;originalType=binary&amp;ratio=1&amp;rotation=0&amp;showTitle=false&amp;status=done&amp;style=none&amp;title=" alt><br>样例</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">4</span> <span class="number">8</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Alice</span><br></pre></td></tr></table></figure>
+<p>为什么不好好出题面呢。</p>
+<p>比赛一直以为样例里面Alice是哭的那个，后来评论说是Alice没哭……只能说这个题面不好评价<br><img src="https://s2.loli.net/2024/03/31/bTuwZDSBvo8nGli.png#id=rRDxt&amp;originHeight=177&amp;originWidth=330&amp;originalType=binary&amp;ratio=1&amp;rotation=0&amp;showTitle=false&amp;status=done&amp;style=none&amp;title=" alt><br>有空再补吧</p>
+</article><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/cdpc/">cdpc</a></div><div class="post_share"><div class="social-share" data-image="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="next-post pull-full"><a href="/2024/03/26/2023JSCPC/" title="2023JSCPC"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">2023JSCPC</div></div></a></div></nav><hr class="custom-hr"/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div id="gitalk-container"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">z01prime</div><div class="author-info__description"></div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">24</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">14</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">7</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/z01prime"><i class="fab fa-github"></i><span>我的github主页</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/z01prime" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="mailto:z7296091@gmail.com" target="_blank" title="Email"><i class="fas fa-envelope"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">加载慢可以挂个梯子试试捏</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#H-%E5%AF%86%E7%A0%81%E6%98%AF%E5%A4%9A%E5%B0%91%EF%BC%9F"><span class="toc-number">1.</span> <span class="toc-text">H 密码是多少？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#A-%E9%80%81%E4%B8%AA%E5%88%86%E5%90%A7"><span class="toc-number">2.</span> <span class="toc-text">A 送个分吧</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#E-%E8%AF%AD%E8%A8%80%E5%AD%A6%E4%B9%A0%E4%B8%AD"><span class="toc-number">3.</span> <span class="toc-text">E 语言学习中</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#G-%E9%9A%8F%E6%9C%BA%E6%B1%89%E5%A0%A1%E5%BA%97"><span class="toc-number">4.</span> <span class="toc-text">G 随机汉堡店</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#B-%E5%AE%A2%E6%B0%94%E5%B0%8F%E5%AD%A9%E5%93%A5"><span class="toc-number">5.</span> <span class="toc-text">B 客气小孩哥</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/03/31/2024%E5%B9%B4%E5%BA%A6%E7%AC%AC%E4%BA%94%E5%B1%8A%E5%85%A8%E5%9B%BD%E5%A4%A7%E5%AD%A6%E7%94%9F%E7%AE%97%E6%B3%95%E8%AE%BE%E8%AE%A1%E4%B8%8E%E7%BC%96%E7%A8%8B%E6%8C%91%E6%88%98%E8%B5%9B%EF%BC%88%E6%98%A5%E5%AD%A3%E8%B5%9B%EF%BC%89/" title="2024年度第五届全国大学生算法设计与编程挑战赛（春季赛）">2024年度第五届全国大学生算法设计与编程挑战赛（春季赛）</a><time datetime="2024-03-31T08:09:26.000Z" title="发表于 2024-03-31 16:09:26">2024-03-31</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/03/26/2023JSCPC/" title="2023JSCPC">2023JSCPC</a><time datetime="2024-03-26T08:24:26.000Z" title="发表于 2024-03-26 16:24:26">2024-03-26</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/03/26/2022SHCPC/" title="2022SHCPC">2022SHCPC</a><time datetime="2024-03-26T08:22:16.000Z" title="发表于 2024-03-26 16:22:16">2024-03-26</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/03/16/%E6%95%B4%E9%99%A4%E5%88%86%E5%9D%97/" title="整除分块">整除分块</a><time datetime="2024-03-16T07:43:27.000Z" title="发表于 2024-03-16 15:43:27">2024-03-16</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/03/16/13thSDCPC/" title="13thSDCPC">13thSDCPC</a><time datetime="2024-03-16T02:40:23.000Z" title="发表于 2024-03-16 10:40:23">2024-03-16</time></div></div></div></div></div></div></main><footer id="footer" style="background-image: url('https://source.fomal.cc/img/dm8.webp')"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2024 By z01prime</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="直达评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"><script>if (!window.MathJax) {
+  window.MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      tags: 'ams'
+    },
+    chtml: {
+      scale: 1.1
+    },
+    options: {
+      renderActions: {
+        findScript: [10, doc => {
+          for (const node of document.querySelectorAll('script[type^="math/tex"]')) {
+            const display = !!node.type.match(/; *mode=display/)
+            const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display)
+            const text = document.createTextNode('')
+            node.parentNode.replaceChild(text, node)
+            math.start = {node: text, delim: '', n: 0}
+            math.end = {node: text, delim: '', n: 0}
+            doc.math.push(math)
+          }
+        }, '']
+      }
+    }
+  }
+  
+  const script = document.createElement('script')
+  script.src = 'https://cdn.jsdelivr.net/npm/mathjax/es5/tex-mml-chtml.min.js'
+  script.id = 'MathJax-script'
+  script.async = true
+  document.head.appendChild(script)
+} else {
+  MathJax.startup.document.state(0)
+  MathJax.texReset()
+  MathJax.typesetPromise()
+}</script><script>function loadGitalk () {
+  function initGitalk () {
+    var gitalk = new Gitalk(Object.assign({
+      clientID: 'e8f61b4db601b696558e',
+      clientSecret: '2f5cacaf3b111d5db02b1b40be93f02553bf9aa4',
+      repo: 'commetForGitalk',
+      owner: 'z01prime',
+      admin: ['z01prime'],
+      id: '657686489b0eb84221a8572f7697b7ea',
+      updateCountCallback: commentCount
+    },null))
+
+    gitalk.render('gitalk-container')
+  }
+
+  if (typeof Gitalk === 'function') initGitalk()
+  else {
+    getCSS('https://cdn.jsdelivr.net/npm/gitalk/dist/gitalk.min.css')
+    getScript('https://cdn.jsdelivr.net/npm/gitalk/dist/gitalk.min.js').then(initGitalk)
+  }
+}
+
+function commentCount(n){
+  let isCommentCount = document.querySelector('#post-meta .gitalk-comment-count')
+  if (isCommentCount) {
+    isCommentCount.textContent= n
+  }
+}
+
+if ('Gitalk' === 'Gitalk' || !true) {
+  if (true) btf.loadComment(document.getElementById('gitalk-container'), loadGitalk)
+  else loadGitalk()
+} else {
+  function loadOtherComment () {
+    loadGitalk()
+  }
+}</script></div><script id="canvas_nest" defer="defer" color="0,0,255" opacity="0.7" zIndex="-1" count="25" mobile="false" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/canvas-nest.min.js"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div class="no-result" id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js"></script></div></div></body></html>
