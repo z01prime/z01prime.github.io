@@ -13,7 +13,7 @@
       
       <categories>
           
-          <category> ICPC省赛 </category>
+          <category> XCPC省赛/邀请赛 </category>
           
       </categories>
       
@@ -38,7 +38,7 @@
       
       <categories>
           
-          <category> ICPC省赛 </category>
+          <category> XCPC省赛/邀请赛 </category>
           
       </categories>
       
@@ -88,9 +88,7 @@
       
       <categories>
           
-          <category> ICPC省赛 </category>
-          
-          <category> 全国邀请赛 </category>
+          <category> XCPC省赛/邀请赛 </category>
           
       </categories>
       
@@ -98,6 +96,8 @@
         <tags>
             
             <tag> 江苏 </tag>
+            
+            <tag> 湖南 </tag>
             
         </tags>
       
@@ -115,7 +115,7 @@
       
       <categories>
           
-          <category> ICPC省赛 </category>
+          <category> XCPC省赛/邀请赛 </category>
           
       </categories>
       
@@ -165,7 +165,7 @@
       
       <categories>
           
-          <category> ICPC省赛 </category>
+          <category> XCPC省赛/邀请赛 </category>
           
       </categories>
       
@@ -378,7 +378,7 @@
       
       <categories>
           
-          <category> ICPC省赛 </category>
+          <category> XCPC省赛/邀请赛 </category>
           
       </categories>
       
@@ -566,7 +566,7 @@
       
       <categories>
           
-          <category> ICPC省赛 </category>
+          <category> XCPC省赛/邀请赛 </category>
           
       </categories>
       
