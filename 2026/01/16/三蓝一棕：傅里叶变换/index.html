@@ -1,0 +1,399 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>三蓝一棕：傅里叶变换 | z01prime</title><meta name="author" content="z01prime"><meta name="copyright" content="z01prime"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="ffffff"><meta name="description" content="三蓝一棕：傅里叶变换记录But what is the Fourier Transform?  A visual introduction.的学习。主要是对傅里叶变换的理解：图形上看是旋转 物理上看是重心与频率的关系 数学上看是复平面、欧拉公式和无限积分。 应用上有去噪、图片处理和降噪耳机等。 核心定义：从“时域”到“频域”的翻译傅里叶变换的核心功能是拆解。简单来说，给你一瓶紫色的颜料（叠加后的波">
+<meta property="og:type" content="article">
+<meta property="og:title" content="三蓝一棕：傅里叶变换">
+<meta property="og:url" content="http://example.com/2026/01/16/%E4%B8%89%E8%93%9D%E4%B8%80%E6%A3%95%EF%BC%9A%E5%82%85%E9%87%8C%E5%8F%B6%E5%8F%98%E6%8D%A2/index.html">
+<meta property="og:site_name" content="z01prime">
+<meta property="og:description" content="三蓝一棕：傅里叶变换记录But what is the Fourier Transform?  A visual introduction.的学习。主要是对傅里叶变换的理解：图形上看是旋转 物理上看是重心与频率的关系 数学上看是复平面、欧拉公式和无限积分。 应用上有去噪、图片处理和降噪耳机等。 核心定义：从“时域”到“频域”的翻译傅里叶变换的核心功能是拆解。简单来说，给你一瓶紫色的颜料（叠加后的波">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://s2.loli.net/2025/03/06/EPO2kshMSWTZoHe.webp">
+<meta property="article:published_time" content="2026-01-16T02:16:47.000Z">
+<meta property="article:modified_time" content="2026-01-16T09:25:15.847Z">
+<meta property="article:author" content="z01prime">
+<meta property="article:tag" content="数学">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://s2.loli.net/2025/03/06/EPO2kshMSWTZoHe.webp"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://example.com/2026/01/16/%E4%B8%89%E8%93%9D%E4%B8%80%E6%A3%95%EF%BC%9A%E5%82%85%E9%87%8C%E5%8F%B6%E5%8F%98%E6%8D%A2/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":false,"top_n_per_article":1,"unescape":false,"languages":{"hits_empty":"找不到您查询的内容：${query}","hits_stats":"共找到 ${hits} 篇文章"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":700},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '天',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '三蓝一棕：傅里叶变换',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: true,
+  isToc: true,
+  postUpdate: '2026-01-16 17:25:15'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+    win.getCSS = (url,id = false) => new Promise((resolve, reject) => {
+      const link = document.createElement('link')
+      link.rel = 'stylesheet'
+      link.href = url
+      if (id) link.id = id
+      link.onerror = reject
+      link.onload = link.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        link.onload = link.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(link)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', 'ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><meta name="generator" content="Hexo 6.3.0"></head><body><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://s2.loli.net/2025/03/06/EPO2kshMSWTZoHe.webp" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">36</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">21</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">8</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 传送门</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://source.fomal.cc/img/dm8.webp')"><nav id="nav"><span id="blog-info"><a href="/" title="z01prime"><span class="site-name">z01prime</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 传送门</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">三蓝一棕：傅里叶变换</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2026-01-16T02:16:47.000Z" title="发表于 2026-01-16 10:16:47">2026-01-16</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2026-01-16T09:25:15.847Z" title="更新于 2026-01-16 17:25:15">2026-01-16</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E6%97%B6%E9%97%B4%E5%BA%8F%E5%88%97%E9%A2%84%E6%B5%8B/">时间序列预测</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="三蓝一棕：傅里叶变换"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h3 id="三蓝一棕：傅里叶变换"><a href="#三蓝一棕：傅里叶变换" class="headerlink" title="三蓝一棕：傅里叶变换"></a>三蓝一棕：傅里叶变换</h3><p>记录<a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=spUNpyF58BY">But what is the Fourier Transform?  A visual introduction.</a>的学习。主要是对傅里叶变换的理解：<br>图形上看是旋转</p>
+<p>物理上看是重心与频率的关系</p>
+<p>数学上看是复平面、欧拉公式和无限积分。</p>
+<p>应用上有去噪、图片处理和降噪耳机等。</p>
+<h4 id="核心定义：从“时域”到“频域”的翻译"><a href="#核心定义：从“时域”到“频域”的翻译" class="headerlink" title="核心定义：从“时域”到“频域”的翻译"></a>核心定义：从“时域”到“频域”的翻译</h4><p>傅里叶变换的核心功能是<strong>拆解</strong>。简单来说，给你一瓶紫色的颜料（叠加后的波形），它能精确地告诉你这瓶紫色是由 40% 的红色、30% 的蓝色和 30% 的白色混合而成的。从音乐的角度理解，交响乐由各种乐器（小提琴、大提琴、长笛）同时演奏，它们的声波叠加在一起。傅里叶变换有绝对音感，能从波形中分辨出里面包含了哪些频率的纯音。</p>
+<p><img src="/2026/01/16/%E4%B8%89%E8%93%9D%E4%B8%80%E6%A3%95%EF%BC%9A%E5%82%85%E9%87%8C%E5%8F%B6%E5%8F%98%E6%8D%A2/image-20260116102155181.png" alt="image-20260116102155181" style="zoom:67%;"></p>
+<p>在这张图片中，</p>
+<p><strong>时域（上方的黄色波）：</strong> 告诉我们信号在<strong>每一秒钟</strong>的强度是多少。</p>
+<p><strong>频域（下方的彩色波）：</strong> 告诉我们信号里包含了哪些<strong>频率</strong>，以及每个频率的<strong>强度</strong>（振幅）是多少。</p>
+<p>抽象一些的说法就是如果把复杂的波形看作是一个向量，那么那些简单的纯正弦波（彩色波）就是一组坐标轴。傅里叶变换的本质，是计算这个复杂信号在每一个特定频率的“坐标轴”上有多少分量。这就好比把一个颜色（如紫色）分解成一定比例的红色和蓝色。</p>
+<p><img src="/2026/01/16/%E4%B8%89%E8%93%9D%E4%B8%80%E6%A3%95%EF%BC%9A%E5%82%85%E9%87%8C%E5%8F%B6%E5%8F%98%E6%8D%A2/image-20260116103917653.png" alt="image-20260116103917653"></p>
+<p>这张图展示了如何利用旋转和重心来提取频率。顶部的波形（Intensity）可以想象成一根长长的、有质量的金属丝，把这根“金属丝”按照某个频率（缠绕频率）绕在一个圆柱坐标系上。结果就是每一个时间点 $t$ 的强度值，被转化成了圆圈上距离圆心的距离。从原点到这个图形的每一个点能够形成一个向量，在上图中，顶部的图像纵坐标随时间的变化就可以变成上图中左下角图像向量的旋转，而在下图中， 每过两秒这个向量就转过一整圈。</p>
+<p>为什么要把波形绕起来？核心在于观察这个图形的<strong>重心（Center of Mass）</strong>：</p>
+<ul>
+<li><p>当缠绕频率与波形频率“对不上”时：</p>
+<p>波形会杂乱无章地均匀分布在圆心的四周。此时，这个“金属丝团”的重心非常接近坐标原点 $(0,0)$。</p>
+<p>此时可以对缠绕频率做一定的调整，比如：</p>
+<p><img src="/2026/01/16/%E4%B8%89%E8%93%9D%E4%B8%80%E6%A3%95%EF%BC%9A%E5%82%85%E9%87%8C%E5%8F%B6%E5%8F%98%E6%8D%A2/image-20260116105209550.png" alt="image-20260116105209550" style="zoom:50%;"></p>
+<p>这个时候图形变得非常整齐、对称，像一朵漂亮的花。这说明<strong>缠绕频率</strong>和<strong>信号频率</strong>之间存在某种<strong>整数倍关系</strong>。虽然它们有节奏上的共鸣，但并不是“同频呼吸”。虽然图形很美，但它是中心对称的。这意味着左边的花瓣和右边的抵消了，上面的和下面的抵消了。重心依然在原点附近。</p>
+<p><img src="/2026/01/16/%E4%B8%89%E8%93%9D%E4%B8%80%E6%A3%95%EF%BC%9A%E5%82%85%E9%87%8C%E5%8F%B6%E5%8F%98%E6%8D%A2/image-20260116105303814.png" alt="image-20260116105303814"></p>
+<p>这里有两个比较关键的频率，直角坐标系中，一秒三个拍子(上下震荡三次)，而在旋转的图像中，向量每秒钟转半圈(0.50 cycle/second)，可以让他转的快些：</p>
+<p><img src="/2026/01/16/%E4%B8%89%E8%93%9D%E4%B8%80%E6%A3%95%EF%BC%9A%E5%82%85%E9%87%8C%E5%8F%B6%E5%8F%98%E6%8D%A2/image-20260116113259202.png" alt="image-20260116113259202" style="zoom:50%;"></p>
+<p>也可以让他转的慢些：</p>
+<p><img src="/2026/01/16/%E4%B8%89%E8%93%9D%E4%B8%80%E6%A3%95%EF%BC%9A%E5%82%85%E9%87%8C%E5%8F%B6%E5%8F%98%E6%8D%A2/image-20260116113326851.png" alt="image-20260116113326851" style="zoom:50%;"></p>
+</li>
+</ul>
+<ul>
+<li><p>当缠绕频率刚好“等于”波形的真实频率时：</p>
+<p>当继续变换频率，直到缠绕频率 = 信号频率（3 次/秒）时，所有的波峰都会堆在该圆形的右侧，波谷都会堆在左侧。</p>
+<p><img src="/2026/01/16/%E4%B8%89%E8%93%9D%E4%B8%80%E6%A3%95%EF%BC%9A%E5%82%85%E9%87%8C%E5%8F%B6%E5%8F%98%E6%8D%A2/image-20260116113728737.png" alt="image-20260116113728737"></p>
+<p><img src="/2026/01/16/%E4%B8%89%E8%93%9D%E4%B8%80%E6%A3%95%EF%BC%9A%E5%82%85%E9%87%8C%E5%8F%B6%E5%8F%98%E6%8D%A2/image-20260116113746097.png" alt="image-20260116113746097" style="zoom:50%;"></p>
+<p>这张图片中白色虚线圆圈表示的是信号的“零偏离”基准线由于我们的原始信号是一个上下波动的正弦波，所以实线会根据波峰和波谷在虚线内外跳动。虚线圆的作用是衬托出实线图案的“不对称性”。实线相对于虚线圆偏移得越厉害，说明在这个频率下的信号分量越强。</p>
+<p>物理含义：此时两者完全同步。</p>
+<p>重心：图形不再是中心对称的，而是整个“甩”向了一边。重心会瞬间跳离原点。</p>
+<p>关于重心的解释：将这个图像中的图形想象成一根铁丝，那么这个图形会有一个重心，上面的花瓣图的重心就在接近原点的位置。</p>
+<p>可以用图像来表述质心关于频率的横坐标</p>
+</li>
+</ul>
+<p><img src="/2026/01/16/%E4%B8%89%E8%93%9D%E4%B8%80%E6%A3%95%EF%BC%9A%E5%82%85%E9%87%8C%E5%8F%B6%E5%8F%98%E6%8D%A2/image-20260116114807593.png" alt="image-20260116114807593"></p>
+<p>显然当频率很小的时候，他的质心横坐标就相对较大：</p>
+<p><img src="/2026/01/16/%E4%B8%89%E8%93%9D%E4%B8%80%E6%A3%95%EF%BC%9A%E5%82%85%E9%87%8C%E5%8F%B6%E5%8F%98%E6%8D%A2/image-20260116114849790.png" alt="image-20260116114849790" style="zoom:50%;"></p>
+<p>继续旋转：</p>
+<p><img src="/2026/01/16/%E4%B8%89%E8%93%9D%E4%B8%80%E6%A3%95%EF%BC%9A%E5%82%85%E9%87%8C%E5%8F%B6%E5%8F%98%E6%8D%A2/image-20260116115004546.png" alt="image-20260116115004546"></p>
+<p>而当和节拍一致的时候（每秒三拍），会出现一个尖峰，因为图像大部分都在右边：</p>
+<p><img src="/2026/01/16/%E4%B8%89%E8%93%9D%E4%B8%80%E6%A3%95%EF%BC%9A%E5%82%85%E9%87%8C%E5%8F%B6%E5%8F%98%E6%8D%A2/image-20260116115404168.png" alt="image-20260116115404168"></p>
+<p>继续增加又会回到0附近：</p>
+<p><img src="/2026/01/16/%E4%B8%89%E8%93%9D%E4%B8%80%E6%A3%95%EF%BC%9A%E5%82%85%E9%87%8C%E5%8F%B6%E5%8F%98%E6%8D%A2/image-20260116115507421.png" alt="image-20260116115507421"></p>
+<p>当然，如果上下移动这个波形，那么在当频率很小的时候，他的质心横坐标就会产生变化。比如这张图：</p>
+<p><img src="/2026/01/16/%E4%B8%89%E8%93%9D%E4%B8%80%E6%A3%95%EF%BC%9A%E5%82%85%E9%87%8C%E5%8F%B6%E5%8F%98%E6%8D%A2/image-20260116115822208.png" alt="image-20260116115822208"></p>
+<p>那么0附近就不会出现波峰：</p>
+<p><img src="/2026/01/16/%E4%B8%89%E8%93%9D%E4%B8%80%E6%A3%95%EF%BC%9A%E5%82%85%E9%87%8C%E5%8F%B6%E5%8F%98%E6%8D%A2/image-20260116115901942.png" alt="image-20260116115901942" style="zoom:50%;"></p>
+<p><img src="/2026/01/16/%E4%B8%89%E8%93%9D%E4%B8%80%E6%A3%95%EF%BC%9A%E5%82%85%E9%87%8C%E5%8F%B6%E5%8F%98%E6%8D%A2/image-20260116115929504.png" alt="image-20260116115929504"></p>
+<p>这样这个图像就会在3处出现一个尖峰。当然这样要考虑负值会很麻烦，只要知道0频率附近只和图像移动有关。</p>
+<p>想要分解频率，那么就要关注3处的凸起。傅里叶变换其实就是一个重心测量机器。它把时间信号缠绕在圆圈上，然后在频率轴上记录下哪些频率能让这个圆圈失去平衡。那个让圆圈最不平衡的频率，就是信号原本的频率。</p>
+<p>*这张图只是一个“近傅里叶变换”，和真正的还有一些区别。</p>
+<p>这只是单个波形的情况，如果是多个波形叠加也是可以通过这样的操作分离出来：</p>
+<p><img src="/2026/01/16/%E4%B8%89%E8%93%9D%E4%B8%80%E6%A3%95%EF%BC%9A%E5%82%85%E9%87%8C%E5%8F%B6%E5%8F%98%E6%8D%A2/image-20260116145612596.png" alt="image-20260116145612596"></p>
+<p>这张图左边展示了2hz和3hz的波形叠加后得到的情况，右边是做了“近傅里叶变换”后的图像，右边波峰的高度确实直接由原始波形的振幅决定。虽然 $2\text{ Hz}$ 和 $3\text{ Hz}$ 的波峰看起来差不多高，但在现实情况中，它们的高度取决于原始分量的振幅。</p>
+<p>关于右边的图，个人理解是横轴 (频率)代表正在使用的探测频率。纵轴 (波峰高度)代表在这个特定频率下，信号所表现出的属性强度。这个属性代表了相关性，或者说是一种同步程度与能量密度，如果在 $3\text{ Hz}$ 处有一个巨大的波峰，这意味着原始信号中有很大一部分能量是在以每秒 3 次的频率振动的。</p>
+<h4 id="傅里叶变换的应用"><a href="#傅里叶变换的应用" class="headerlink" title="傅里叶变换的应用"></a>傅里叶变换的应用</h4><p>比如一段音频，有很高频的噪声，傅里叶变换可以找到高频的尖啸部分，并且将他去掉。</p>
+<p><img src="/2026/01/16/%E4%B8%89%E8%93%9D%E4%B8%80%E6%A3%95%EF%BC%9A%E5%82%85%E9%87%8C%E5%8F%B6%E5%8F%98%E6%8D%A2/image-20260116151149014.png" alt="image-20260116151149014"></p>
+<p>然后在对其做逆傅里叶变换，还原回原先的信号，这样就能够有效的去噪。</p>
+<p>这个“单一尖峰”是为了演示方便而设定的理想化噪声，真实情况下，可能不是一个波峰而是好几个小波峰，甚至铺满整个高频区域的一段连续起伏。在去噪时，工程师不是只删掉一个点，而是会用“低通滤波器”把某一频率之后的整个区域全部“抹平”。</p>
+<p>应用：</p>
+<p>1.可以用在音频去噪。去掉背景音中的蜂鸣器发出的尖啸（滤掉高频），去掉空调、机箱等发出的声音（滤掉低频）。</p>
+<p>2.并且由于每一种声音对应的频率都是固定的，可以用于降噪耳机的噪声算法识别。</p>
+<p>3.图片美化。傅里叶变换处理的是随时间变化的波，而图片虽然是静止的像素点，也可以看作是一种“波”，只不过它是空间上的“频率”。沿着图片的一行像素走过去，像素的亮度（从黑到白）在不断变化，这个就是一种波。比如磨皮与锐化，皮肤上的瑕疵、皱纹、毛孔都属于高频细节。磨皮本质上就是一个低通滤波器：它保留了皮肤红润的底色（低频），但过滤掉了代表瑕疵的剧烈波动（高频）。这就是为什么磨皮太厉害照片会显得没细节，因为把所有的轮廓细节（高频）全滤掉了。</p>
+<p>4.图片压缩(JPEG)人的眼睛对大面积的颜色（低频）很敏感，但对极细微的纹理变化（高频）不那么敏感。压缩算法会通过类似傅里叶变换的手段（如 DCT 变换），把图片中不重要的高频属性直接扔掉，从而极大地减小文件体积。</p>
+<p>*学到这里的时候，我想既然峰值对应能量大小，那么这些频率的积分应该就是某一个常数，查了一下是叫做帕塞瓦尔定理：一个信号在时域里的总能量，严格等于它在“频域”里所有频率分量能量的积分（总和）。</p>
+<p>*所以换一种角度来看，傅里叶变换的核心假设就是宇宙万物都可以由不同频率的圆周运动（正余弦波）叠加而成。这也是为什么FEDformer做时序列预测往往效果都还可以，如果一个时序列有重复规律，说明它内部存在稳定的频率成分。傅里叶变换就就可以把时序中那些藏得很深的、不同节奏的循环给找出来。这样就能够给模型提供一个全局视野，因为它直接把这种每隔几个时间步重复一次的规律浓缩成了一个频率分量（波峰）。而在时域中，信息是分散在数千个时间点里的；但在频域中，最关键的信息（规律）通常集中在少数几个频率点上。对这几个关键频率做 Attention，相当于把注意力集中在了信号的重要特征上，自动过滤掉了那些随机波动的杂质，这非常符合注意力机制的设计理念。</p>
+<h4 id="真正的傅里叶变换"><a href="#真正的傅里叶变换" class="headerlink" title="真正的傅里叶变换"></a>真正的傅里叶变换</h4><p>之前讨论的一直是“近傅里叶变换”，因为只记录了重心在 x 轴（左右）移动。但在现实中，当频率对上时，重心可能会偏向任何方向——上方、下方、或者斜着。如果只看 $x$ 轴，你可能会漏掉信息。</p>
+<p>如果用复平面来表示的话会方便很多。复平面是描述旋转的高效工具，因为在复数的世界里，“乘法”的本质就是“旋转”。</p>
+<p>在复平面上，一个复数 $a + bi$ 可以完美地代表二维平面上的一个<strong>点</strong>。</p>
+<ul>
+<li><strong>实部 ($a$)</strong>：代表重心的左右偏移（也就是你之前看到的 $x$ 坐标）。</li>
+<li><strong>虚部 ($bi$)</strong>：代表重心的上下偏移（$y$ 坐标）。</li>
+<li><strong>模（距离）</strong>：代表重心偏离原点的总距离。这就是你之前理解的<strong>“属性强度”或“振幅”</strong>。</li>
+<li><strong>辐角（角度）</strong>：代表重心偏向了哪个方向。这就是<strong>“相位”</strong>。</li>
+</ul>
+<p>例如欧拉公式($e^{ix} = \cos x + i\sin x$)，$e^{ni}$ 能表示成在圆周上“走” $n$ 个单位，</p>
+<p><img src="/2026/01/16/%E4%B8%89%E8%93%9D%E4%B8%80%E6%A3%95%EF%BC%9A%E5%82%85%E9%87%8C%E5%8F%B6%E5%8F%98%E6%8D%A2/image-20260116162352684.png" alt="image-20260116162352684" style="zoom:50%;"></p>
+<p>想要描述一个每秒钟转一圈的旋转，那么就可以用$e^{2\pi it}$表示，其中t表示经过的时间。</p>
+<p>如果在圆周上走了 $\pi$（约 3.14）个单位，从右边出发走半圆，则会刚好落在左边的 <strong>$-1$</strong> 位置。这就是著名的 $e^{i\pi} + 1 = 0$。</p>
+<p><img src="/2026/01/16/%E4%B8%89%E8%93%9D%E4%B8%80%E6%A3%95%EF%BC%9A%E5%82%85%E9%87%8C%E5%8F%B6%E5%8F%98%E6%8D%A2/image-20260116163335773.png" alt="image-20260116163335773" style="zoom:50%;"></p>
+<p>通常会在公式中引入 $f$（或者常说的 $\xi$），是为了把“走的距离”和“时间”关联起来，当把公式写成 $e^{i 2\pi f t}$ 时，这个$f$作为频率，起到了调节速度的作用。</p>
+<p>*其实$2\pi f$就是和物理中的角速度的相关，$\theta = \omega t$，$\omega$ 是角速度，代表每秒转过的弧度。</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th><strong>物理概念</strong></th>
+<th><strong>物理符号</strong></th>
+<th><strong>傅里叶/欧拉公式中的符号</strong></th>
+<th><strong>含义</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>频率</strong></td>
+<td>$f$</td>
+<td>$f$ (或 $\xi$)</td>
+<td>每秒钟旋转的圈数（缠绕频率）</td>
+</tr>
+<tr>
+<td><strong>周期</strong></td>
+<td>$T$</td>
+<td>$1/f$</td>
+<td>转完一圈需要的时间</td>
+</tr>
+<tr>
+<td><strong>角速度</strong></td>
+<td>$\omega$</td>
+<td>$2\pi f$</td>
+<td>每秒钟转过的“角度”（弧度）</td>
+</tr>
+<tr>
+<td><strong>相位/角度</strong></td>
+<td>$\phi$</td>
+<td>$2\pi f t$</td>
+<td>在 $t$ 时刻，点落在了圆周的哪个位置</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>在物理中，我们经常用 $\cos(\omega t)$ 或 $\sin(\omega t)$ 来描述波动。但欧拉公式把这两者合二为一了：</p>
+<script type="math/tex; mode=display">
+e^{i \omega t} = \text{(水平方向的波动)} + i \times \text{(垂直方向的波动)}</script><p>这种表达方式让“波动”变成了一个在空间中不断旋转的向量。</p>
+<p>而在傅里叶变换的语境下，向量都是按照顺时针的方式旋转的，所以一般来说，这个公式要加一个负号： $e^{-i 2\pi f t}$ ，并且由于这个公式表示的是一个“标准圆”，而在实际的波形中，或者采用刚才可以弯曲的金属丝的类比，需要乘上一个$g(t)$来表示不同形状的金属丝。</p>
+<p>乘以 $g(t)$的作用：</p>
+<ul>
+<li><strong>距离变化</strong>：圆周上的点到原点的距离不再固定为 $1$，而是变成了 $g(t)$ 在那一时刻的大小。</li>
+<li><strong>结果</strong>：原本完美的圆被“拉伸”或“挤压”了。当 $g(t)$ 的数值大时，点离原点远；当 $g(t)$ 小时，点离原点近。</li>
+<li>这就形成了那些像花瓣、像心形、或者很乱的的缠绕图案。</li>
+</ul>
+<p>数学一点的理解，可以把这个乘法看作是给旋转运动“加权”：</p>
+<ul>
+<li>$e^{-2\pi ift}$ 提供了<strong>旋转的角度</strong>（节奏）。</li>
+<li>$g(t)$ 提供了<strong>旋转的幅度</strong>（内容）。</li>
+<li>组合起来，$g(t)e^{-2\pi ift}$ 就代表了：在时间 $t$，原始信号在旋转圆盘上所处的真实的二维位置。</li>
+</ul>
+<p>由于一开始是为了表示这个图案的质心，那么可以用积分来表示。</p>
+<p>如果你把 $g(t)e^{-2\pi ift}$​ 看作是在圆盘上画出的那条复杂的曲线，那么积分的操作本质上就是在计算这条曲线的总和。想找一个物体的重心，最简单的方法就是把物体上所有点的坐标加起来，然后除以总长度（或者总质量）。</p>
+<ul>
+<li>相加的动作在数学里，在处理连续变化的曲线时，就是积分。</li>
+<li>公式：$\int_{t_1}^{t_2} g(t)e^{-2\pi ift} dt$， 这个积分，实际上是在把这段时间内金属丝在复平面上经过的所有位置点全部累加在一起。</li>
+</ul>
+<p>这个公式能够解释那张3hz处突然起来的波峰。</p>
+<p>当频率不对时：金属丝在圆盘上均匀地绕来绕去，正向的点和负向的点互相抵消了，积分（累加）的结果接近于 0。</p>
+<p>当频率对上时：所有的点都堆在了圆的一侧（像那个心形图），大家劲儿往一处使，积分（累加）的结果就会变成一个很大的数值。</p>
+<p>所以这个就是最后的公式：</p>
+<script type="math/tex; mode=display">
+\hat{g}(f) = \int_{t_1}^{t_2} g(t) e^{-i 2\pi f t} dt</script><p>其实就是在说为了在频率 $f$ 处得到一个值，把信号 $g(t)$ 按照频率 $f$ 顺时针（负号）卷在圆盘上，然后算出这段时间内所有点的总和（积分）。</p>
+<p>当然关于刚才那一张质心在x轴的位置随频率变化的图像，也可以根据这个公式画上其在虚部的变化。</p>
+<p><img src="/2026/01/16/%E4%B8%89%E8%93%9D%E4%B8%80%E6%A3%95%EF%BC%9A%E5%82%85%E9%87%8C%E5%8F%B6%E5%8F%98%E6%8D%A2/image-20260116171758100.png" alt="image-20260116171758100"></p>
+<p>简单来说，实部（Real part）记录的是重心在 $x$ 轴上的位置，而虚部（Imaginary part）记录的是重心在 $y$ 轴上的位置。</p>
+<p>虚部的意义在物理上的解释就是相位。如果只看实部，那么只能知道这个频率的成分有多强，但你不知道它的起跑时刻。</p>
+<ul>
+<li><strong>例子</strong>：想象两个频率一模一样的声波，但一个比另一个晚了半秒钟响起。</li>
+<li><strong>结果</strong>：它们的实部波形可能看起来完全一样，但它们的<strong>虚部会截然不同</strong>。</li>
+<li><strong>结论</strong>：虚部和实部共同决定了重心的<strong>偏转角度</strong>。这个角度精确地告诉了我们：这个频率的波是从哪一个瞬间开始震动的。</li>
+</ul>
+<p><strong>注：在视频中，为了理解重心，作者用的是有限长的金属丝。但真正的傅里叶变换定义中，积分区间其实是从 $-\infty$ 到 $+\infty$。完整的公式如下：</strong></p>
+<script type="math/tex; mode=display">
+\hat{g}(f) = \int_{-\infty}^{\infty} g(t) e^{-i 2\pi f t} dt</script></article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="http://example.com">z01prime</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a target="_blank" rel="noopener" href="http://z01prime.github.io/2024/01/16/三蓝一棕：傅里叶变换/">http://z01prime.github.io/2024/01/16/三蓝一棕：傅里叶变换/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://example.com" target="_blank">z01prime</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E6%95%B0%E5%AD%A6/">数学</a></div><div class="post_share"><div class="social-share" data-image="https://s2.loli.net/2025/03/06/EPO2kshMSWTZoHe.webp" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="next-post pull-full"><a href="/2025/12/22/%E5%85%B3%E4%BA%8E%E9%9B%85%E6%80%9D/" title="关于雅思"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">关于雅思</div></div></a></div></nav><hr class="custom-hr"/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div id="gitalk-container"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="https://s2.loli.net/2025/03/06/EPO2kshMSWTZoHe.webp" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">z01prime</div><div class="author-info__description"></div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">36</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">21</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">8</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/z01prime"><i class="fab fa-github"></i><span>我的github主页</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/z01prime" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="mailto:z7296091@gmail.com" target="_blank" title="Email"><i class="fas fa-envelope"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">加载慢可以挂个梯子试试捏</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%89%E8%93%9D%E4%B8%80%E6%A3%95%EF%BC%9A%E5%82%85%E9%87%8C%E5%8F%B6%E5%8F%98%E6%8D%A2"><span class="toc-number">1.</span> <span class="toc-text">三蓝一棕：傅里叶变换</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%A0%B8%E5%BF%83%E5%AE%9A%E4%B9%89%EF%BC%9A%E4%BB%8E%E2%80%9C%E6%97%B6%E5%9F%9F%E2%80%9D%E5%88%B0%E2%80%9C%E9%A2%91%E5%9F%9F%E2%80%9D%E7%9A%84%E7%BF%BB%E8%AF%91"><span class="toc-number">1.1.</span> <span class="toc-text">核心定义：从“时域”到“频域”的翻译</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%82%85%E9%87%8C%E5%8F%B6%E5%8F%98%E6%8D%A2%E7%9A%84%E5%BA%94%E7%94%A8"><span class="toc-number">1.2.</span> <span class="toc-text">傅里叶变换的应用</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%9C%9F%E6%AD%A3%E7%9A%84%E5%82%85%E9%87%8C%E5%8F%B6%E5%8F%98%E6%8D%A2"><span class="toc-number">1.3.</span> <span class="toc-text">真正的傅里叶变换</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2026/01/16/%E4%B8%89%E8%93%9D%E4%B8%80%E6%A3%95%EF%BC%9A%E5%82%85%E9%87%8C%E5%8F%B6%E5%8F%98%E6%8D%A2/" title="三蓝一棕：傅里叶变换">三蓝一棕：傅里叶变换</a><time datetime="2026-01-16T02:16:47.000Z" title="发表于 2026-01-16 10:16:47">2026-01-16</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/12/22/%E5%85%B3%E4%BA%8E%E9%9B%85%E6%80%9D/" title="关于雅思">关于雅思</a><time datetime="2025-12-22T02:29:43.000Z" title="发表于 2025-12-22 10:29:43">2025-12-22</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/04/21/2021SCCPC/" title="2021SCCPC">2021SCCPC</a><time datetime="2025-04-21T06:40:56.000Z" title="发表于 2025-04-21 14:40:56">2025-04-21</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/12/31/2024CCPC%E5%B1%B1%E4%B8%9C%E9%82%80%E8%AF%B7%E8%B5%9B/" title="2024CCPC山东邀请赛">2024CCPC山东邀请赛</a><time datetime="2024-12-31T07:43:10.000Z" title="发表于 2024-12-31 15:43:10">2024-12-31</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/11/22/2024HNCPC/" title="2024HNCPC">2024HNCPC</a><time datetime="2024-11-22T08:50:44.000Z" title="发表于 2024-11-22 16:50:44">2024-11-22</time></div></div></div></div></div></div></main><footer id="footer" style="background-image: url('https://source.fomal.cc/img/dm8.webp')"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2026 By z01prime</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="直达评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"><script>if (!window.MathJax) {
+  window.MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      tags: 'ams'
+    },
+    chtml: {
+      scale: 1.1
+    },
+    options: {
+      renderActions: {
+        findScript: [10, doc => {
+          for (const node of document.querySelectorAll('script[type^="math/tex"]')) {
+            const display = !!node.type.match(/; *mode=display/)
+            const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display)
+            const text = document.createTextNode('')
+            node.parentNode.replaceChild(text, node)
+            math.start = {node: text, delim: '', n: 0}
+            math.end = {node: text, delim: '', n: 0}
+            doc.math.push(math)
+          }
+        }, '']
+      }
+    }
+  }
+  
+  const script = document.createElement('script')
+  script.src = 'https://cdn.jsdelivr.net/npm/mathjax/es5/tex-mml-chtml.min.js'
+  script.id = 'MathJax-script'
+  script.async = true
+  document.head.appendChild(script)
+} else {
+  MathJax.startup.document.state(0)
+  MathJax.texReset()
+  MathJax.typesetPromise()
+}</script><script>function loadGitalk () {
+  function initGitalk () {
+    var gitalk = new Gitalk(Object.assign({
+      clientID: 'e8f61b4db601b696558e',
+      clientSecret: '2f5cacaf3b111d5db02b1b40be93f02553bf9aa4',
+      repo: 'commetForGitalk',
+      owner: 'z01prime',
+      admin: ['z01prime'],
+      id: '03e3750d87e53134c960a9dbfc40982d',
+      updateCountCallback: commentCount
+    },null))
+
+    gitalk.render('gitalk-container')
+  }
+
+  if (typeof Gitalk === 'function') initGitalk()
+  else {
+    getCSS('https://cdn.jsdelivr.net/npm/gitalk/dist/gitalk.min.css')
+    getScript('https://cdn.jsdelivr.net/npm/gitalk/dist/gitalk.min.js').then(initGitalk)
+  }
+}
+
+function commentCount(n){
+  let isCommentCount = document.querySelector('#post-meta .gitalk-comment-count')
+  if (isCommentCount) {
+    isCommentCount.textContent= n
+  }
+}
+
+if ('Gitalk' === 'Gitalk' || !true) {
+  if (true) btf.loadComment(document.getElementById('gitalk-container'), loadGitalk)
+  else loadGitalk()
+} else {
+  function loadOtherComment () {
+    loadGitalk()
+  }
+}</script></div><script id="canvas_nest" defer="defer" color="0,0,255" opacity="0.7" zIndex="-1" count="25" mobile="false" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/canvas-nest.min.js"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div class="no-result" id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js"></script></div></div></body></html>
