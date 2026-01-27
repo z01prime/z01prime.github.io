@@ -1,13 +1,13 @@
-<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>注意力机制 | z01prime</title><meta name="author" content="z01prime"><meta name="copyright" content="z01prime"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="ffffff"><meta name="description" content="动图轻松理解Self-Attention(自注意力机制) - 知乎 Attention in transformers, step-by-step | Deep Learning Chapter 6 How might LLMs store facts | Deep Learning Chapter 7 重要的概念query、key和value。这三个词翻译成中文就是查询、键、值。 可以理解为一种">
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>注意力机制 | z01prime</title><meta name="author" content="z01prime"><meta name="copyright" content="z01prime"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="ffffff"><meta name="description" content="Attention in transformers, step-by-step | Deep Learning Chapter 6 How might LLMs store facts | Deep Learning Chapter 7 重要的概念query、key和value。这三个词翻译成中文就是查询、键、值。 可以理解为一种行为：当厨师在锅里准备放下一个调料时，他会看一眼菜谱。书会将他的查询">
 <meta property="og:type" content="article">
 <meta property="og:title" content="注意力机制">
 <meta property="og:url" content="http://example.com/2026/01/24/%E6%B3%A8%E6%84%8F%E5%8A%9B%E6%9C%BA%E5%88%B6/index.html">
 <meta property="og:site_name" content="z01prime">
-<meta property="og:description" content="动图轻松理解Self-Attention(自注意力机制) - 知乎 Attention in transformers, step-by-step | Deep Learning Chapter 6 How might LLMs store facts | Deep Learning Chapter 7 重要的概念query、key和value。这三个词翻译成中文就是查询、键、值。 可以理解为一种">
+<meta property="og:description" content="Attention in transformers, step-by-step | Deep Learning Chapter 6 How might LLMs store facts | Deep Learning Chapter 7 重要的概念query、key和value。这三个词翻译成中文就是查询、键、值。 可以理解为一种行为：当厨师在锅里准备放下一个调料时，他会看一眼菜谱。书会将他的查询">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://s2.loli.net/2025/03/06/EPO2kshMSWTZoHe.webp">
 <meta property="article:published_time" content="2026-01-24T02:30:50.000Z">
-<meta property="article:modified_time" content="2026-01-25T04:09:28.687Z">
+<meta property="article:modified_time" content="2026-01-27T07:02:14.536Z">
 <meta property="article:author" content="z01prime">
 <meta property="article:tag" content="Transformer">
 <meta name="twitter:card" content="summary">
@@ -58,7 +58,7 @@
   isHome: false,
   isHighlightShrink: true,
   isToc: true,
-  postUpdate: '2026-01-25 12:09:28'
+  postUpdate: '2026-01-27 15:02:14'
 }</script><noscript><style type="text/css">
   #nav {
     opacity: 1
@@ -162,45 +162,15 @@
       }
     }
     detectApple()
-    })(window)</script><meta name="generator" content="Hexo 6.3.0"></head><body><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://s2.loli.net/2025/03/06/EPO2kshMSWTZoHe.webp" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">37</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">22</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">8</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 传送门</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://source.fomal.cc/img/dm8.webp')"><nav id="nav"><span id="blog-info"><a href="/" title="z01prime"><span class="site-name">z01prime</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 传送门</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">注意力机制</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2026-01-24T02:30:50.000Z" title="发表于 2026-01-24 10:30:50">2026-01-24</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2026-01-25T04:09:28.687Z" title="更新于 2026-01-25 12:09:28">2026-01-25</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E6%97%B6%E9%97%B4%E5%BA%8F%E5%88%97%E9%A2%84%E6%B5%8B/">时间序列预测</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="注意力机制"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/619154409">动图轻松理解Self-Attention(自注意力机制) - 知乎</a></p>
-<p><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=eMlx5fFNoYc&amp;list=PLZHQObOWTQDNU6R1_67000Dx_ZCJB-3pi&amp;index=7">Attention in transformers, step-by-step | Deep Learning Chapter 6</a></p>
+    })(window)</script><meta name="generator" content="Hexo 6.3.0"></head><body><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://s2.loli.net/2025/03/06/EPO2kshMSWTZoHe.webp" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">37</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">22</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">8</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 传送门</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://source.fomal.cc/img/dm8.webp')"><nav id="nav"><span id="blog-info"><a href="/" title="z01prime"><span class="site-name">z01prime</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 传送门</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">注意力机制</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2026-01-24T02:30:50.000Z" title="发表于 2026-01-24 10:30:50">2026-01-24</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2026-01-27T07:02:14.536Z" title="更新于 2026-01-27 15:02:14">2026-01-27</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E6%97%B6%E9%97%B4%E5%BA%8F%E5%88%97%E9%A2%84%E6%B5%8B/">时间序列预测</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="注意力机制"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><p><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=eMlx5fFNoYc&amp;list=PLZHQObOWTQDNU6R1_67000Dx_ZCJB-3pi&amp;index=7">Attention in transformers, step-by-step | Deep Learning Chapter 6</a></p>
 <p><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=9-Jl0dxWQs8&amp;t=1190s">How might LLMs store facts | Deep Learning Chapter 7</a></p>
 <h1 id="重要的概念"><a href="#重要的概念" class="headerlink" title="重要的概念"></a>重要的概念</h1><p><strong>query、key和value</strong>。这三个词翻译成中文就是<strong>查询、键、值</strong>。</p>
 <p>可以理解为一种行为：当厨师在锅里准备放下一个调料时，他会看一眼菜谱。书会将他的查询<strong>query</strong>映射到书中相关的标签<strong>key</strong>，如辣椒，盐等等，然后书中会展示最匹配的调料<strong>value</strong>。</p>
-<p><strong>Source</strong> 和 <strong>Target</strong>。</p>
-<p><strong>Source（源）</strong>：指的是输入。这里是菜谱。</p>
-<p><strong>Target（目标）</strong>：指的是输出。这里是锅里正在炒的菜（以及厨师脑子里已经生成的做菜步骤）</p>
-<p><strong>Self-Attention</strong>与<strong>Attention</strong>。</p>
-<p>上述的行为其实是属于 <strong>Attention（或者叫 Cross-Attention）</strong>，而不是 Self-Attention。Attention 是“拿着钥匙（Query）去开别人家的锁（Key）”。</p>
-<p>Self-Attention 是“把家里所有的零件（Q, K, V）摆在地上，看看谁和谁能拼在一起”。</p>
-<ol>
-<li>类比：厨师做菜（Cross-Attention）</li>
-</ol>
-<p>在这个场景中：</p>
-<ul>
-<li>Source是<strong>菜单/菜谱</strong>（上面写着：宫保鸡丁 -&gt; 鸡肉、花生、辣椒）。</li>
-<li>Target是<strong>厨师锅里的菜</strong>。</li>
-</ul>
-<p><strong>Cross-Attention 发生的过程：</strong> 当厨师（模型）在锅里准备放下一个调料（生成下一个词）时，他会抬头看一眼菜单（Source）。</p>
-<ul>
-<li><strong>Query</strong>：厨师：“我现在锅里有鸡肉了，下一步该放什么？”</li>
-<li><strong>Key</strong>：菜单上的每一行标题（如“主料“，调味”）。</li>
-<li><strong>Value</strong>：菜单上对应的具体内容（如“葱段”、“盐”）。</li>
-</ul>
-<p><strong>结论</strong>：厨师通过 Query 去匹配菜单的 Key，最后拿到了 Value 放入锅中。这就是Target（锅里的进展）对 Source（静态菜单）的注意力。</p>
-<ol>
-<li>类比：理解食材（Self-Attention）</li>
-</ol>
-<p>在厨师还没开始炒菜，只是阅读菜单的时候，发生的是Self-Attention。</p>
-<ul>
-<li><p>菜单上写着“将洗净的<strong>辣椒</strong>切段，因为它很<strong>辣</strong>”。</p>
-</li>
-<li><p>为了理解这个“它”是指辣椒还是指手，厨师的脑子会自动把“它”和“辣椒”关联起来。</p>
-</li>
-<li><p>这是Source 内部元素之间的互看。“它”产生的 Query 向量，在空间中的方向会指向“寻找那些具有名词属性且容易辣的东西”。</p>
-<p>而“辣椒”产生的 Key 向量，正好在空间中的那个位置。</p>
-</li>
-</ul>
+<p><strong>Source</strong> 和 <strong>Target</strong>。<strong>Source（源）</strong>指的是输入。这里是菜谱。<strong>Target（目标）</strong>指的是输出。这里是锅里正在炒的菜（以及厨师脑子里已经生成的做菜步骤）</p>
+<p><strong>Self-Attention</strong>与<strong>Attention</strong>。上述的行为其实是属于 Attention（或者叫 Cross-Attention），而不是 Self-Attention。Attention 是拿着钥匙（Query）去开别人家的锁（Key）。</p>
+<p>Self-Attention 是“把家里所有的零件（Q, K, V）摆在地上，看看谁和谁能拼在一起。</p>
+<p>Cross-Attention可以理解为厨师做菜，Source是菜单/菜谱。Target是厨师锅里的菜。Cross-Attention 发生的过程就是当厨师（模型）在锅里准备放下一个调料（生成下一个词）时，他会抬头看一眼菜单（Source）。Query是厨师的询问，说明现在锅里有鸡肉了，下一步该放什么？Key是菜单上的每一行标题（如“主料“，调味”）。Value是菜单上对应的具体内容（如“葱段”、“盐”）。最终厨师通过 Query 去匹配菜单的 Key，最后拿到了 Value 放入锅中。这就是Target（锅里的进展）对 Source（静态菜单）的注意力。</p>
+<p>厨师阅读菜单的时候，发生的是Self-Attention。菜单上写着“将洗净的<strong>辣椒</strong>切段，因为它很<strong>辣</strong>”。模型为了理解这个“它”是指辣椒还是指手，会自动把“它”和“辣椒”关联起来。这是Source 内部元素之间的互看。“它”产生的 Query 向量，在空间中的方向会指向“寻找那些具有名词属性且容易辣的东西”。而“辣椒”产生的 Key 向量，正好在空间中的那个位置。</p>
 <h1 id="注意力机制的直观理解"><a href="#注意力机制的直观理解" class="headerlink" title="注意力机制的直观理解"></a>注意力机制的直观理解</h1><p>接下来的学习会以文本生成为例。</p>
 <h2 id="Token"><a href="#Token" class="headerlink" title="Token"></a><strong>Token</strong></h2><p>指的是文本被切割成的小块，一般是单词或者是单词片段。</p>
 <p>注意，Token 不是由Transformer模型本身分割的，而是由一个专门的预处理工具——分词器（Tokenizer）完成的。</p>
@@ -232,7 +202,7 @@
 <tr>
 <td><strong>Subword-level (子词 - 主流)</strong></td>
 <td><code>un, happi, ness</code></td>
-<td><strong>兼顾两者</strong></td>
+<td>兼顾两者</td>
 <td>将常见词保留完整，生僻词拆成碎块。</td>
 </tr>
 </tbody>
@@ -453,52 +423,525 @@ A\vec{x} = \begin{bmatrix} \vert & \vert & & \vert \\ \vec{C}_1 & \vec{C}_2 & \d
 </table>
 </div>
 <p>*其实这个对于GPT来说的<code>n_layer</code>参数在其他模型中叫做Decoder层的维度，传统 Transformer（如翻译任务）需要 Encoder 读入中文，Decoder 产出英文。GPT 系列是纯 Decoder 架构（Decoder-only），它本质上是一个“接龙”模型。它把之前写好的所有字都当成“已有的输入”，直接塞进一串 Decoder 里去预测下一个字。</p>
-<h1 id="补充：关于TIme-Series-Library库的启动脚本的超参数解读"><a href="#补充：关于TIme-Series-Library库的启动脚本的超参数解读" class="headerlink" title="补充：关于TIme-Series-Library库的启动脚本的超参数解读"></a>补充：关于TIme-Series-Library库的启动脚本的超参数解读</h1><p><a target="_blank" rel="noopener" href="https://github.com/thuml/Time-Series-Library/tree/main">thuml/Time-Series-Library: A Library for Advanced Deep Time Series Models for General Time Series Analysis.</a></p>
+<h1 id="Transformer源码解读"><a href="#Transformer源码解读" class="headerlink" title="Transformer源码解读"></a>Transformer源码解读</h1><p>GPT-3是只用了Decoder，但是实际上在原始论文中，Transformer的架构是用于机器翻译的。找了一个Transformer的源码：<a target="_blank" rel="noopener" href="https://github.com/graykode/nlp-tutorial/tree/master">https://github.com/graykode/nlp-tutorial/tree/master</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/z01prime/TransformerCodeTutorial">更好的阅读体验/jupyteerNoteBook源码链接：z01prime/TransformerCodeTutorial: pytorch的Transformer的代码实现</a></p>
+<h2 id="环境"><a href="#环境" class="headerlink" title="环境"></a>环境</h2><p>windows 11</p>
+<p>Python 3.11.14 </p>
+<p>包环境：</p>
+<ul>
+<li>numpy 1.23.5</li>
+<li>torch 2.2.2</li>
+<li>matplotlib 3.7.0</li>
+</ul>
+<p>也没有这么严格的要求，能不冲突就行</p>
+<h2 id="导入一些包"><a href="#导入一些包" class="headerlink" title="导入一些包"></a>导入一些包</h2><p>首先要先导入一些常用的库</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> os</span><br><span class="line">os.environ[<span class="string">&quot;KMP_DUPLICATE_LIB_OK&quot;</span>] = <span class="string">&quot;TRUE&quot;</span></span><br></pre></td></tr></table></figure>
+<p>解决可能会有的老环境问题</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br></pre></td></tr></table></figure>
+<p>在 Transformer 中主要用于处理矩阵运算、生成位置编码（Positional Encoding）的三角函数序列，以及处理一些数组形状的变换。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> torch</span><br></pre></td></tr></table></figure>
+<p>这个是PyTorch 的核心库，提供了张量操作，支持GPU加速</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> torch.nn <span class="keyword">as</span> nn</span><br></pre></td></tr></table></figure>
+<p>PyTorch 的神经网络模块（neural network）</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> torch.optim <span class="keyword">as</span> optim</span><br></pre></td></tr></table></figure>
+<p>提供一些优化器，包含了如 Adam、SGD 等优化器，用于根据损失函数计算的梯度来更新模型参数。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br></pre></td></tr></table></figure>
+<p>画图用的</p>
+<h2 id="数据集"><a href="#数据集" class="headerlink" title="数据集"></a>数据集</h2><p>因为是演示，所以简单提供一些数据就行。写的简陋些，就假设要训练一个德语翻译为英语的任务：ich mochte ein bier P翻译为i want a beer</p>
+<p>代码里准备了三份数据：</p>
+<p>enc_inputs: ich mochte ein bier P (Encoder 看到的原话)</p>
+<p>dec_inputs: S i want a beer (Decoder 看到的“辅助信息”，告诉它：从 S 开始，后面跟着这些词)</p>
+<p>target： i want a beer E (模型真正的“学习目标”，告诉它：最后要输出这些词，并以 E 结束)</p>
+<p>这种机制在深度学习中被称为 Teacher Forcing（老师引导/强制教学）。dec_inputs和target有点像，因为dec_inputs是输入，用于给模型参考的。而target是目标，是标准答案。它们的关系是错开一位的：</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>时间步 (Step)</th>
+<th>Decoder 输入 (dec_inputs)</th>
+<th>模型尝试预测的词</th>
+<th>标准答案 (target_batch)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>第 1 步</td>
+<td><strong>S</strong></td>
+<td>$\rightarrow$</td>
+<td><strong>i</strong></td>
+</tr>
+<tr>
+<td>第 2 步</td>
+<td>S <strong>i</strong></td>
+<td>$\rightarrow$</td>
+<td><strong>want</strong></td>
+</tr>
+<tr>
+<td>第 3 步</td>
+<td>S i <strong>want</strong></td>
+<td>$\rightarrow$</td>
+<td><strong>a</strong></td>
+</tr>
+<tr>
+<td>第 4 步</td>
+<td>S i want <strong>a</strong></td>
+<td>$\rightarrow$</td>
+<td><strong>beer</strong></td>
+</tr>
+<tr>
+<td>第 5 步</td>
+<td>S i want a <strong>beer</strong></td>
+<td>$\rightarrow$</td>
+<td><strong>E</strong></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><code>dec_inputs</code> 总是比 <code>target</code> 早一个位置（这也是论文中的Transformer框架图里面为什么还注上了Shift Right）。模型在每个位置的任务都是：根据已经看到的词，预测下一个词。</p>
+<p>这个是训练部分，当然在真实的测试场景根本没有target，因为还不知道答案。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sentences = [<span class="string">&#x27;ich mochte ein bier P&#x27;</span>, <span class="string">&#x27;S i want a beer&#x27;</span>, <span class="string">&#x27;i want a beer E&#x27;</span>]</span><br></pre></td></tr></table></figure>
+<h2 id="词表与Target-Source长度"><a href="#词表与Target-Source长度" class="headerlink" title="词表与Target/Source长度"></a>词表与Target/Source长度</h2><h3 id="词表"><a href="#词表" class="headerlink" title="词表"></a>词表</h3><p>那么除了提供训练的句子，还要有一个词表用于分词，所以自己定义了一个词表:</p>
+<p>这个是source的词表：<code>src_vocab = &#123;&#39;P&#39;: 0, &#39;ich&#39;: 1, &#39;mochte&#39;: 2, &#39;ein&#39;: 3, &#39;bier&#39;: 4&#125;</code></p>
+<p>这个是Target的词表：<code>tgt_vocab = &#123;&#39;P&#39;: 0, &#39;i&#39;: 1, &#39;want&#39;: 2, &#39;a&#39;: 3, &#39;beer&#39;: 4, &#39;S&#39;: 5, &#39;E&#39;: 6&#125;</code></p>
+<p><code>tgt_vocab</code>比<code>src_vocab</code>多了 ‘S’ 和 ‘E’。并且<code>src_vocab</code>有一个‘P’.因为<code>src_vocab</code>是给Encoder用的（德语），而<code>tgt_vocab</code>是给Decoder用的（英语）。</p>
+<p>这些都是特殊字符：</p>
+<p><code>S</code> (Start / BOS - Beginning of Sentence)，他是解码器的起始符号。在推理（翻译）时，解码器（Decoder）第一步并不知道该输出什么。我们会喂给它一个 <code>S</code>，告诉它从这里开始翻译第一个词。</p>
+<p><code>E</code> (End / EOS - End of Sentence)，是句子的终止符号。训练时，当翻译完最后一个词后，模型要输出一个 <code>E</code>表示结束了。这样在实际使用时，看到模型输出了 <code>E</code>，就知道翻译结束了，否则它可能会无限循环下去。</p>
+<p><code>P</code> (Padding)，就是一个填充符号。用于对齐。如果一个 Batch里，第一句有 5 个词，第二句只有 4 个词，我们会给第二句补上一个 <code>P</code>，让两句话长度一致，方便并行计算。具体来说，Padding 的目标是让整个 Batch 变成一个 矩形矩阵（$Batch_Size \times Seq_Len$）。这里‘p’是0是有原因的，如果位置向量是全 0，那么根据公式：<script type="math/tex">\text{Embedding}(P) + \text{Positional}(0) = \text{Embedding}(P)</script><br>这意味着填充位 ‘P’ 在空间中没有任何位置偏移，它不会携带任何顺序信息。</p>
+<p>还有一个好处是掩码的时候算的很快，因为判断一个数是否等于 0 是最快的。之后代码中的<code>get_attn_pad_mask</code>函数会有用到。</p>
+<p><strong>这里说的“词”都是指Token，而不是字符数或单词数，当然真实情况下分词器不一定就是恰好一个单词一个单词分，是按照每个字母组合的概率来分，分出来的有点像是词根词缀</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Transformer Parameters</span></span><br><span class="line"><span class="comment"># Padding Should be Zero</span></span><br><span class="line">src_vocab = &#123;<span class="string">&#x27;P&#x27;</span>: <span class="number">0</span>, <span class="string">&#x27;ich&#x27;</span>: <span class="number">1</span>, <span class="string">&#x27;mochte&#x27;</span>: <span class="number">2</span>, <span class="string">&#x27;ein&#x27;</span>: <span class="number">3</span>, <span class="string">&#x27;bier&#x27;</span>: <span class="number">4</span>&#125;</span><br><span class="line">src_vocab_size = <span class="built_in">len</span>(src_vocab)</span><br><span class="line"></span><br><span class="line">tgt_vocab = &#123;<span class="string">&#x27;P&#x27;</span>: <span class="number">0</span>, <span class="string">&#x27;i&#x27;</span>: <span class="number">1</span>, <span class="string">&#x27;want&#x27;</span>: <span class="number">2</span>, <span class="string">&#x27;a&#x27;</span>: <span class="number">3</span>, <span class="string">&#x27;beer&#x27;</span>: <span class="number">4</span>, <span class="string">&#x27;S&#x27;</span>: <span class="number">5</span>, <span class="string">&#x27;E&#x27;</span>: <span class="number">6</span>&#125;</span><br><span class="line">number_dict = &#123;i: w <span class="keyword">for</span> i, w <span class="keyword">in</span> <span class="built_in">enumerate</span>(tgt_vocab)&#125; <span class="comment"># 做一个反向的映射数字-&gt;单词</span></span><br><span class="line">tgt_vocab_size = <span class="built_in">len</span>(tgt_vocab)</span><br></pre></td></tr></table></figure>
+<p><code>number_dict</code>用于解码，把模型输出的数字，翻译回人能看的单词。</p>
+<p>比如： [1, 2, 3, 4, 6] → i want a beer E</p>
+<h3 id="Target-Source长度"><a href="#Target-Source长度" class="headerlink" title="Target/Source长度"></a>Target/Source长度</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">src_len = <span class="number">5</span> <span class="comment"># length of source</span></span><br><span class="line">tgt_len = <span class="number">5</span> <span class="comment"># length of target</span></span><br></pre></td></tr></table></figure>
+<p>还要设置source和target的长度，这里统一设置为5</p>
+<p>比如传进去的<code>batch_size</code>参数设为2，那么比如有这样的句子：</p>
+<p>Gib mir ein Glas Wasser</p>
+<p>ich mochte ein bier</p>
+<p>规定按照单词来分词的话，那么显然第一句和第二句的长度不一样，第二句少了一个Token，要补一个P，这样让两句话长度一致，方便并行计算。所以这也是为什么我给的句子中是“ich mochte ein bier P”而不是“ich mochte ein bier”</p>
+<p>在实际的大规模模型（如 GPT 或 BERT）中，一般会使用专门的 Tokenizer（如 Byte-Pair Encoding, BPE）。但在这段代码里，我使用的是最原始的空格切分：<code>input_batch = [[src_vocab[n] for n in sentences[0].split()]]</code>。</p>
+<p>在时间序列任务中，为了让 Decoder 更有序地预测，通常会给它一段已知的历史数据作为前缀（即<a target="_blank" rel="noopener" href="https://github.com/thuml/Time-Series-Library">https://github.com/thuml/Time-Series-Library</a> 启动脚本中的label_len部分），这和 NLP 的 Teacher Forcing 非常像。</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>时间序列参数</th>
+<th>含义</th>
+<th>对应你代码中的部分</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>seq_len</code></td>
+<td>历史观察窗口长度 (Look-back window)</td>
+<td><code>src_len</code> (Encoder 输入的长度，这里是 5)</td>
+</tr>
+<tr>
+<td><code>label_len</code></td>
+<td>Decoder 能看到的“已知答案”长度 (作为提示)</td>
+<td><code>dec_inputs</code> 中的 <code>S</code> 及其后续部分</td>
+</tr>
+<tr>
+<td><code>pred_len</code></td>
+<td>最终要预测的未来长度</td>
+<td><code>target</code> 中除去前缀后的部分</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>分完词后，要转换为数字，这也叫Numericalization（数值化），把这些Token映射成词表里的索引数字。例如ich变成1。所以要写一个函数负责数值化，这里起名为<code>make_batch</code>（见后续的代码实现）,然后还要对其进行向量化（Embedding）将数字索引变成浮点数向量比如[0.12, -0.55… ]之类的。pytorch提供了一个方法，在模型里我用nn.Embedding负责向量化。</p>
+<p>这样就完成了框架图中的Embedding部分：</p>
+<p><img src="/2026/01/24/%E6%B3%A8%E6%84%8F%E5%8A%9B%E6%9C%BA%E5%88%B6/image-20260127142731814.png" alt="image-20260127142731814" style="zoom: 25%;"></p>
+<h2 id="超参数设置："><a href="#超参数设置：" class="headerlink" title="超参数设置："></a>超参数设置：</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">d_model = <span class="number">512</span>  <span class="comment"># Embedding Size</span></span><br><span class="line">d_ff = <span class="number">2048</span>  <span class="comment"># FeedForward dimension</span></span><br><span class="line">d_k = d_v = <span class="number">64</span>  <span class="comment"># dimension of K(=Q), V</span></span><br><span class="line">n_layers = <span class="number">6</span>  <span class="comment"># number of Encoder of Decoder Layer</span></span><br><span class="line">n_heads = <span class="number">8</span>  <span class="comment"># number of heads in Multi-Head Attention</span></span><br></pre></td></tr></table></figure>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>参数名</th>
+<th>大小</th>
+<th>深度说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>d_model</code></td>
+<td>512</td>
+<td>模型维度。它是 Embedding 的长度，也是残差连接（Residual）路径上向量的长度。</td>
+</tr>
+<tr>
+<td><code>d_ff</code></td>
+<td>2048</td>
+<td>前馈网络中间层维度。在 FFN 中，向量会先从 512 升维到 2048，再降回 512。</td>
+</tr>
+<tr>
+<td><code>d_k = d_q = d_v</code></td>
+<td>64</td>
+<td>单头维度。每个注意力头在计算时，会将 512 维“切开”进入 64 维的子空间进行观察。</td>
+</tr>
+<tr>
+<td><code>n_layers</code></td>
+<td>6</td>
+<td>堆叠层数。论文中 Encoder 和 Decoder 分别由 6 个完全相同的层堆叠而成（即 $N=6$）。</td>
+</tr>
+<tr>
+<td><code>n_heads</code></td>
+<td>8</td>
+<td>头数**。决定了模型同时在多少个不同的语义子空间中进行并行注意力计算。</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h2 id="模型代码"><a href="#模型代码" class="headerlink" title="模型代码"></a>模型代码</h2><h3 id="多头注意力机制"><a href="#多头注意力机制" class="headerlink" title="多头注意力机制"></a>多头注意力机制</h3><p>这个部分实现了注意力公式：<script type="math/tex">\text{Attention}(Q, K, V) = \text{Softmax}\left(\frac{QK^T}{\sqrt{d_k}}\right)V</script></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">ScaledDotProductAttention</span>(nn.Module):</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self</span>):</span><br><span class="line">        <span class="built_in">super</span>(ScaledDotProductAttention, self).__init__()</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">forward</span>(<span class="params">self, Q, K, V, attn_mask</span>):</span><br><span class="line">        scores = torch.matmul(Q, K.transpose(-<span class="number">1</span>, -<span class="number">2</span>)) / np.sqrt(d_k) <span class="comment"># scores : [batch_size x n_heads x len_q(=len_k) x len_k(=len_q)]</span></span><br><span class="line">        scores.masked_fill_(attn_mask, -<span class="number">1e9</span>) <span class="comment"># Fills elements of self tensor with value where mask is one.</span></span><br><span class="line">        attn = nn.Softmax(dim=-<span class="number">1</span>)(scores)</span><br><span class="line">        context = torch.matmul(attn, V)</span><br><span class="line">        <span class="keyword">return</span> context, attn</span><br></pre></td></tr></table></figure>
+<ul>
+<li>torch.matmul：这个是pytorch的批量矩阵乘法，它会保持前两个维度（batch 和 n_heads）不动，只对最后两个维度执行矩阵乘法。计算的形状变化：<script type="math/tex">[batch, n\_heads, len\_q, d\_k] \times [batch, n\_heads, d\_k, len\_k] = [batch, n\_heads, len\_q, len\_k]</script>表示的意义是对于每一个头，查询句中的每一个词（len_q）对键句中的每一个词（len_k）的关注程度。当然如果是二维矩阵直接用<code>.T</code>也是可以的，对于这种 4 维张量，只想交换最后两个维度还是直接用transpose会更好些</li>
+<li>masked_fill_：直接原地修改<code>scores</code>这个变量，将所有之前算出来的attn_mask中维True的位置全部换成一个很小的数字，这样在做softmax之后，$e^{-1e9}$就约等于0</li>
+<li>context是$\vec{E}_n + \Delta \vec{E}_n = \vec{E}’_n$中$\Delta \vec{E}_n$的一部分，是每一个头产生的增量。</li>
+</ul>
+<p>此外关于为什么对最后一个维度做Softmax，是因为公式中是$Q K^T$，所以得到的矩阵行是Q，列是K的相关信息，逐列做归一化，就是在计算每个Token的Q对于句子中每一个Token产生的K的注意力分数的归一化。以那一句德语为例，这句德语：[‘ich’, ‘mochte’, ‘ein’, ‘bier’, ‘P’]由于参数是<code>batch_size = 1, n_heads = 8, d_model = 512, d_k = 64</code>。可以得到矩阵的整体形状是[1, 8, 5, 5]。为了直观，只看其中一个 Head，它的横轴（列）是 Key，纵轴（行）是 Query，可能得注意力分数是：</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>Query \ Key</th>
+<th>ich (1)</th>
+<th>mochte (2)</th>
+<th>ein (3)</th>
+<th>bier (4)</th>
+<th>P (0)</th>
+<th>行总和</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ich</td>
+<td>0.8</td>
+<td>0.1</td>
+<td>0.05</td>
+<td>0.05</td>
+<td>0.0</td>
+<td>1.0</td>
+</tr>
+<tr>
+<td>mochte</td>
+<td>0.2</td>
+<td>0.6</td>
+<td>0.1</td>
+<td>0.1</td>
+<td>0.0</td>
+<td>1.0</td>
+</tr>
+<tr>
+<td>ein</td>
+<td>0.05</td>
+<td>0.1</td>
+<td>0.7</td>
+<td>0.15</td>
+<td>0.0</td>
+<td>1.0</td>
+</tr>
+<tr>
+<td>bier</td>
+<td>0.05</td>
+<td>0.1</td>
+<td>0.25</td>
+<td>0.6</td>
+<td>0.0</td>
+<td>1.0</td>
+</tr>
+<tr>
+<td>P</td>
+<td>0.2</td>
+<td>0.2</td>
+<td>0.2</td>
+<td>0.2</td>
+<td>0.2</td>
+<td>1.0</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Softmax 的公式是 $P_i = \frac{e^{x_i}}{\sum e^{x_j}}$,所以最后一行就算全是-1e9那么平均下来每个也能分到0.2。这个注意力分数会影响结果，所以我会在最后计算 Loss 的时候，直接设置ignore_index=0，这样计算 Loss 的时候，在PyTorch 检查 target_batch时，凡是标签值为 0（即字符 ‘P’）的位置，产生的损失都会被直接标记为 0，直接把 P 这个位置产生的任何输出结果给物理抹除。</p>
+<p>框架中对应的MultiHeadAttention部分：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">MultiHeadAttention</span>(nn.Module):</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self</span>):</span><br><span class="line">        <span class="built_in">super</span>(MultiHeadAttention, self).__init__()</span><br><span class="line">        self.W_Q = nn.Linear(d_model, d_k * n_heads)</span><br><span class="line">        self.W_K = nn.Linear(d_model, d_k * n_heads)</span><br><span class="line">        self.W_V = nn.Linear(d_model, d_v * n_heads)</span><br><span class="line">        self.linear = nn.Linear(n_heads * d_v, d_model)</span><br><span class="line">        self.layer_norm = nn.LayerNorm(d_model)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">forward</span>(<span class="params">self, Q, K, V, attn_mask</span>):</span><br><span class="line">        <span class="comment"># q: [batch_size x len_q x d_model], k: [batch_size x len_k x d_model], v: [batch_size x len_k x d_model]</span></span><br><span class="line">        residual, batch_size = Q, Q.size(<span class="number">0</span>)</span><br><span class="line">        <span class="comment"># (B, S, D) -proj-&gt; (B, S, D) -split-&gt; (B, S, H, W) -trans-&gt; (B, H, S, W)</span></span><br><span class="line">        q_s = self.W_Q(Q).view(batch_size, -<span class="number">1</span>, n_heads, d_k).transpose(<span class="number">1</span>,<span class="number">2</span>)  <span class="comment"># q_s: [batch_size x n_heads x len_q x d_k]</span></span><br><span class="line">        k_s = self.W_K(K).view(batch_size, -<span class="number">1</span>, n_heads, d_k).transpose(<span class="number">1</span>,<span class="number">2</span>)  <span class="comment"># k_s: [batch_size x n_heads x len_k x d_k]</span></span><br><span class="line">        v_s = self.W_V(V).view(batch_size, -<span class="number">1</span>, n_heads, d_v).transpose(<span class="number">1</span>,<span class="number">2</span>)  <span class="comment"># v_s: [batch_size x n_heads x len_k x d_v]</span></span><br><span class="line"></span><br><span class="line">        attn_mask = attn_mask.unsqueeze(<span class="number">1</span>).repeat(<span class="number">1</span>, n_heads, <span class="number">1</span>, <span class="number">1</span>) <span class="comment"># attn_mask : [batch_size x n_heads x len_q x len_k]</span></span><br><span class="line"></span><br><span class="line">        <span class="comment"># context: [batch_size x n_heads x len_q x d_v], attn: [batch_size x n_heads x len_q(=len_k) x len_k(=len_q)]</span></span><br><span class="line">        context, attn = ScaledDotProductAttention()(q_s, k_s, v_s, attn_mask)</span><br><span class="line">        context = context.transpose(<span class="number">1</span>, <span class="number">2</span>).contiguous().view(batch_size, -<span class="number">1</span>, n_heads * d_v) <span class="comment"># context: [batch_size x len_q x n_heads * d_v]</span></span><br><span class="line">        output = self.linear(context)</span><br><span class="line">        <span class="keyword">return</span> self.layer_norm(output + residual), attn <span class="comment"># output: [batch_size x len_q x d_model]</span></span><br></pre></td></tr></table></figure>
+<p>这个模型在初始化的时候的参数，对应了GPT-3的Query，Key，Value，Output：</p>
+<p><img src="/2026/01/24/%E6%B3%A8%E6%84%8F%E5%8A%9B%E6%9C%BA%E5%88%B6/image-20260127142911815.png" alt="image-20260127142911815" style="zoom: 50%;"></p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>变量</th>
+<th>对应的层</th>
+<th>GPT-3 的参数计算公式</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>self.W_Q</code></td>
+<td>Query</td>
+<td>$d_query \times d_embed \times n_heads \times n_layers$</td>
+</tr>
+<tr>
+<td><code>self.W_K</code></td>
+<td>Key</td>
+<td>$d_query \times d_embed \times n_heads \times n_layers$</td>
+</tr>
+<tr>
+<td><code>self.W_V</code></td>
+<td>Value</td>
+<td>$d_value \times d_embed \times n_heads \times n_layers$</td>
+</tr>
+<tr>
+<td><code>self.linear</code></td>
+<td>Output</td>
+<td>$d_embed \times d_value \times n_heads \times n_layers$</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>而代码中的<code>self.layer_norm = nn.LayerNorm(d_model)</code>则是层归一化层，当然他的维度是和词向量大小<code>d_model</code>相关。代码里 n_layers = 6，所以总参数量就是这些线性层参数之和再乘以 6。</p>
+<p>q_s、k_s、v_s是对 $Q, K, V$ 做了完全相同的变换，以$Q$为例,</p>
+<ul>
+<li>第一步是线性投影，对应代码中的<code>self.W_Q(Q)</code>,表示将原始词向量通过矩阵乘法，投影到一个新的特征空间，即$Q_{proj} = Q \cdot W^Q$。</li>
+<li>第二步是维度拆分，对应代码中<code>.view(batch_size, -1, n_heads, d_k)</code>表示将原本 $512$ 维的向量，“切”成了 $8$ 个 $64$ 维的小向量。这是多头的物理实现。</li>
+<li>第三步是对维度的转置，对应代码中<code>.transpose(1, 2)</code>表示从从 [batch, len, 8, 64] 变成 [batch, 8, len, 64]。这是为了后续的矩阵乘法运算，在刚才的<code>ScaledDotProductAttention</code>中也可以看到是对最后两个维度做运算。</li>
+</ul>
+<p>而<code>attn_mask.unsqueeze(1).repeat(1, n_heads, 1, 1)</code>表示把之前做好的单层掩码，克隆成一套多头的掩码矩阵，以便它能准确覆盖到每一个注意力头上。</p>
+<ul>
+<li>unsqueeze(1)表示在第 1 维（索引从 0 开始）插入一个长度为 1 的新维度。形状变化：[batch_size, len_q, len_k] $\rightarrow$ [batch_size, 1, len_q, len_k]。目的是为注意力头的腾出位置，即在 batch 和序列长度之间插了一个空位。</li>
+<li>repeat(1, n_heads, 1, 1)表示在第 1 维拷贝 n_heads 次，其余维不变。形状变化：[batch_size, 1, len_q, len_k] $\rightarrow$ [batch_size, 8, 5, 5]（n_head设置为 8 个头）</li>
+</ul>
+<p>然后在<code>context = context.transpose(1, 2).contiguous().view(batch_size, -1, n_heads * d_v)</code>将 8 个头独立算出的增量重新缝合成一个完整的、与输入维度一致的长向量。</p>
+<ul>
+<li><code>transpose(1, 2)</code>是在把注意力头换回来，因为计算完注意力后，context 的形状是 [batch_size, n_heads, len_q, d_v]（[1, 8, 5, 64]）。这相当于交换第 1 维（n_heads）和第 2 维（len_q），最后会变成[1, 5, 8, 64]。表示重新以单词序列为主序。现在每个单词后面紧跟着 8 个头为它捕捉到的特征信息。</li>
+<li><code>contiguous()</code>是在整理内存，在内存中开辟一块新空间，按照现在的逻辑顺序把数据重新排好。如果不加这一步，下一步的<code>view</code>操作会因为内存不连续而报错。</li>
+<li><code>view(batch_size, -1, n_heads * d_v)</code>是在缝合维度，把最后两个维度（8 个头 和 每个头的 64 维）合并成一个维度（$8 \times 64 = 512$）。最终形状：[batch_size, len_q, d_model] (即 [1, 5, 512])。</li>
+</ul>
+<h3 id="前馈神经网络"><a href="#前馈神经网络" class="headerlink" title="前馈神经网络"></a>前馈神经网络</h3><p>Feed Forward部分</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">PoswiseFeedForwardNet</span>(nn.Module):</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self</span>):</span><br><span class="line">        <span class="built_in">super</span>(PoswiseFeedForwardNet, self).__init__()</span><br><span class="line">        self.conv1 = nn.Conv1d(in_channels=d_model, out_channels=d_ff, kernel_size=<span class="number">1</span>)</span><br><span class="line">        self.conv2 = nn.Conv1d(in_channels=d_ff, out_channels=d_model, kernel_size=<span class="number">1</span>)</span><br><span class="line">        self.layer_norm = nn.LayerNorm(d_model)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">forward</span>(<span class="params">self, inputs</span>):</span><br><span class="line">        residual = inputs <span class="comment"># inputs : [batch_size, len_q, d_model]</span></span><br><span class="line">        output = nn.ReLU()(self.conv1(inputs.transpose(<span class="number">1</span>, <span class="number">2</span>)))</span><br><span class="line">        output = self.conv2(output).transpose(<span class="number">1</span>, <span class="number">2</span>)</span><br><span class="line">        <span class="keyword">return</span> self.layer_norm(output + residual)</span><br></pre></td></tr></table></figure>
+<p>这一部分也就是多层感知机。</p>
+<p>在init中：</p>
+<ul>
+<li><code>self.conv1</code> 表示将 d_model (512) 映射到 d_ff (2048)。即特征放大，寻找更细微的模式。对应图中第一个线性层</li>
+<li><code>self.conv2</code>表示将 d_ff (2048) 压缩回 d_model (512)。用于还原原始的词向量</li>
+<li><code>self.layer_norm</code>层归一化，这图中没有标明，实际位置在$\oplus$ 之后，这个实际上是在将得到的新词向量做一个归一化，虽然在进入 <code>PoswiseFeedForwardNet</code> 时，多头的 <code>context</code> 早就已经被缝合成一个统一的向量了,主要是为了防止向量里的数值在经过 $512 \rightarrow 2048 \rightarrow 512$ 的剧烈变换后变得忽大忽小。确保下一层（比如另一个 Encoder 层）接收到的输入是标准的，不会导致梯度爆炸。</li>
+</ul>
+<p>对应了GPT-3参数图中的up-projection和down-projection：</p>
+<h3 id="Encoder相关"><a href="#Encoder相关" class="headerlink" title="Encoder相关"></a>Encoder相关</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">get_attn_pad_mask</span>(<span class="params">seq_q, seq_k</span>):</span><br><span class="line">    <span class="comment"># 比如在Encoder的调用里面，都是 enc_inputs: [[1, 2, 3, 4, 0]]</span></span><br><span class="line">    batch_size, len_q = seq_q.size()</span><br><span class="line">    batch_size, len_k = seq_k.size()</span><br><span class="line">    <span class="comment"># eq(0) 是判断哪些位置等于 0 (即 P)</span></span><br><span class="line">    <span class="comment"># pad_attn_mask 变成: [[False, False, False, False, True]]</span></span><br><span class="line">    pad_attn_mask = seq_k.data.eq(<span class="number">0</span>).unsqueeze(<span class="number">1</span>)  <span class="comment"># batch_size x 1 x len_k(=len_q), one is masking</span></span><br><span class="line">    <span class="comment"># expand 扩展成矩阵: [1, 5, 5]</span></span><br><span class="line">    <span class="keyword">return</span> pad_attn_mask.expand(batch_size, len_q, len_k)  <span class="comment"># batch_size x len_q x len_k</span></span><br></pre></td></tr></table></figure>
+<p>函数返回的是一个 布尔矩阵（Mask 矩阵）。对于 ich mochte ein bier P 这句话，它生成的 Mask 矩阵看起来像这样（用 1 代表 True/屏蔽）：</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th></th>
+<th>ich</th>
+<th>mochte</th>
+<th>ein</th>
+<th>bier</th>
+<th>P</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ich</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+</tr>
+<tr>
+<td>mochte</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+</tr>
+<tr>
+<td>…</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+</tr>
+<tr>
+<td>P</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>表示无论这个Token是谁（每一行代表一个词），当这个Token回头看全句时，最后一列的 P 都要被抹掉。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">get_sinusoid_encoding_table</span>(<span class="params">n_position, d_model</span>):</span><br><span class="line">    <span class="comment"># 算角度</span></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">cal_angle</span>(<span class="params">position, hid_idx</span>):</span><br><span class="line">        <span class="keyword">return</span> position / np.power(<span class="number">10000</span>, <span class="number">2</span> * (hid_idx // <span class="number">2</span>) / d_model)</span><br><span class="line">    <span class="comment"># 算向量</span></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">get_posi_angle_vec</span>(<span class="params">position</span>):</span><br><span class="line">        <span class="keyword">return</span> [cal_angle(position, hid_j) <span class="keyword">for</span> hid_j <span class="keyword">in</span> <span class="built_in">range</span>(d_model)]</span><br><span class="line">    <span class="comment"># 先求出公式中括号里面的</span></span><br><span class="line">    sinusoid_table = np.array([get_posi_angle_vec(pos_i) <span class="keyword">for</span> pos_i <span class="keyword">in</span> <span class="built_in">range</span>(n_position)])</span><br><span class="line">    <span class="comment"># 分给sin和cos </span></span><br><span class="line">    sinusoid_table[:, <span class="number">0</span>::<span class="number">2</span>] = np.sin(sinusoid_table[:, <span class="number">0</span>::<span class="number">2</span>])  <span class="comment"># dim 2i</span></span><br><span class="line">    sinusoid_table[:, <span class="number">1</span>::<span class="number">2</span>] = np.cos(sinusoid_table[:, <span class="number">1</span>::<span class="number">2</span>])  <span class="comment"># dim 2i+1</span></span><br><span class="line">    <span class="keyword">return</span> torch.FloatTensor(sinusoid_table)</span><br></pre></td></tr></table></figure>
+<p>代码中的逻辑其实是在实现论文里的这两个公式：</p>
+<script type="math/tex; mode=display">
+PE_{(pos, 2i)} = \sin\left(\frac{pos}{10000^{2i/d_{model}}}\right)</script><script type="math/tex; mode=display">
+PE_{(pos, 2i+1)} = \cos\left(\frac{pos}{10000^{2i/d_{model}}}\right)</script><p>三个原因：</p>
+<p>第一个是有界性的考虑。$\sin$ 和 $\cos$ 的值永远在 $[-1, 1]$ 之间。如果直接用 $1, 2, 3…$，当句子很长时，位置值会变得巨大，干扰词向量的特征。</p>
+<p>第二个是相对位置关系方便表示，根据三角函数公式：</p>
+<script type="math/tex; mode=display">\sin(\alpha + \beta) = \sin\alpha\cos\beta + \cos\alpha\sin\beta</script><p>这说明对于任何固定的偏移 $k$，$PE_{pos+k}$ 都可以表示为 $PE_{pos}$ 的线性组合。这让模型能够非常容易地学习到词与词之间的相对距离。</p>
+<p>第三就是唯一性。由于每一维的频率（分母里的 $10000^{…}$）都不同，从第 0 维到第 511 维，波长是逐渐拉长的。这保证了每一个位置生成的 512 维向量都是唯一的。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">EncoderLayer</span>(nn.Module):</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self</span>):</span><br><span class="line">        <span class="built_in">super</span>(EncoderLayer, self).__init__() <span class="comment"># 初始化父类，确保能够使用nn.Module中的自动追踪权重、支持移动到GPU等</span></span><br><span class="line">        self.enc_self_attn = MultiHeadAttention() <span class="comment"># 多头注意力</span></span><br><span class="line">        self.pos_ffn = PoswiseFeedForwardNet() <span class="comment"># 前馈神经层</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">forward</span>(<span class="params">self, enc_inputs, enc_self_attn_mask</span>):</span><br><span class="line">        enc_outputs, attn = self.enc_self_attn(enc_inputs, enc_inputs, enc_inputs, enc_self_attn_mask) <span class="comment"># 去做自注意力，Q,K,V都是enc_inputs</span></span><br><span class="line">        enc_outputs = self.pos_ffn(enc_outputs) <span class="comment"># enc_outputs: [batch_size x len_q x d_model]</span></span><br><span class="line">        <span class="keyword">return</span> enc_outputs, attn</span><br></pre></td></tr></table></figure>
+<p>enc_outputs是经过多头注意力（Multi-Head Attention）和前馈网络（FFN）处理后的新向量。</p>
+<ul>
+<li>进去前向量只代表词本身（比如 bier 只代表啤酒）。</li>
+<li>出来后向量融入了周围词的信息（比如 bier 的向量现在包含了“它是 ich 想要的那个 bier”这种语境信息）。</li>
+</ul>
+<p>这个 enc_outputs 会作为下一层 Encoder Layer 的输入继续被精炼。层数给了 6 层，相当于被精炼 6 次。</p>
+<p>attn是注意力权重矩阵（打分表）就是产生了注意力分数的矩阵。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Encoder</span>(nn.Module):</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self</span>):</span><br><span class="line">        <span class="built_in">super</span>(Encoder, self).__init__()</span><br><span class="line">        self.src_emb = nn.Embedding(src_vocab_size, d_model) <span class="comment">#Token的Embedding</span></span><br><span class="line">        self.pos_emb = nn.Embedding.from_pretrained(get_sinusoid_encoding_table(src_len+<span class="number">1</span>, d_model),freeze=<span class="literal">True</span>) <span class="comment">#位置编码</span></span><br><span class="line">        self.layers = nn.ModuleList([EncoderLayer() <span class="keyword">for</span> _ <span class="keyword">in</span> <span class="built_in">range</span>(n_layers)]) <span class="comment">#产生n_layers个层</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">forward</span>(<span class="params">self, enc_inputs</span>): <span class="comment"># enc_inputs : [batch_size x source_len]</span></span><br><span class="line">        enc_outputs = self.src_emb(enc_inputs) + self.pos_emb(torch.LongTensor([[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">0</span>]])) <span class="comment">#特征融合，整合词义信息和位置信息</span></span><br><span class="line">        enc_self_attn_mask = get_attn_pad_mask(enc_inputs, enc_inputs) <span class="comment"># 在计算注意力时，忽略为了凑长度而补进去的 P（Padding）。</span></span><br><span class="line">        enc_self_attns = [] <span class="comment">#存每一层的注意力分数表，可视化会用到</span></span><br><span class="line">        <span class="keyword">for</span> layer <span class="keyword">in</span> self.layers:</span><br><span class="line">            enc_outputs, enc_self_attn = layer(enc_outputs, enc_self_attn_mask)</span><br><span class="line">            enc_self_attns.append(enc_self_attn)</span><br><span class="line">        <span class="keyword">return</span> enc_outputs, enc_self_attns</span><br></pre></td></tr></table></figure>
+<ul>
+<li>nn.Embedding：nn.Embedding就是一个模型能够理解的字典。第一维是词表大小，是整个字典里有多少个不重复的词，因为是Encoder层，所以词表大小是src_vocab_size。d_model是每一个 Token 被转化成的向量维度（这里是 512）。当然，在更高级的 NLP 任务中，经常会加载预训练词向量而不是让模型自己去学（如 Word2Vec 或 GloVe）。</li>
+<li>Embedding.from_pretrained：from_pretrained 是一个特殊的构造方法。它改变了字典的生成方式。普通构造是需要去训练的，构造出来的全是全是随机生成的数字，但是这个方法会给一个已经算好的矩阵（Tensor）让它直接用这些数字作为初始内容。具体的数字源于get_sinusoid_encoding_table 函数，这个函数通过 $sin$ 和 $cos$ 的数学公式，预先计算出了一个形状为 [6, 512] 的矩阵。这里多加了一维，为了兼容Decoder中的‘S’。</li>
+<li>特征融合这里，self.pos_emb(torch.LongTensor([[1,2,3,4,0]]))这个顺序是和输入的句子意义对应的：’ich mochte ein bier P’。当然这是为了演示，真实情况肯定不是这样硬编码的</li>
+<li>for循环是在精炼语义，可能得情况是第 1 层理解基础语法，比如主谓关系。到第 6 层就能够理解高级语义，即词语在句子里的最终含义。最后返回的 enc_outputs就是 Encoder 对这句德语的最终理解结果。它会被送往 Decoder，作为翻译的参考。</li>
+</ul>
+<p>这样就完成了模型框架中的词嵌入以及编码层。</p>
+<p><img src="/2026/01/24/%E6%B3%A8%E6%84%8F%E5%8A%9B%E6%9C%BA%E5%88%B6/image-20260127143142655.png" alt="image-20260127143142655" style="zoom: 25%;"></p>
+<h3 id="Dncoder相关"><a href="#Dncoder相关" class="headerlink" title="Dncoder相关"></a>Dncoder相关</h3><p><code>get_attn_subsequent_mask</code>是和Masked Multi-Head Attention相关，Encoder 的 Mask 只是为了挡住 P (Padding)，而这个方法生成的是上三角矩阵。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">get_attn_subsequent_mask</span>(<span class="params">seq</span>):</span><br><span class="line">    attn_shape = [seq.size(<span class="number">0</span>), seq.size(<span class="number">1</span>), seq.size(<span class="number">1</span>)]</span><br><span class="line">    subsequent_mask = np.triu(np.ones(attn_shape), k=<span class="number">1</span>)</span><br><span class="line">    subsequent_mask = torch.from_numpy(subsequent_mask).byte()</span><br><span class="line">    <span class="keyword">return</span> subsequent_mask</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 测试，模拟一个 Batch_size=1, 长度为 5 的序列</span></span><br><span class="line">test_seq = torch.LongTensor([[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>]])</span><br><span class="line">mask = get_attn_subsequent_mask(test_seq)</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;Generated Subsequent Mask (1 means MASKED):&quot;</span>)</span><br><span class="line"><span class="built_in">print</span>(mask[<span class="number">0</span>].numpy())</span><br></pre></td></tr></table></figure>
+<pre><code>Generated Subsequent Mask (1 means MASKED):
+[[0 1 1 1 1]
+ [0 0 1 1 1]
+ [0 0 0 1 1]
+ [0 0 0 0 1]
+ [0 0 0 0 0]]
+</code></pre><p>[[0 1 1 1 1]  第一行：只能看索引0，不能看1,2,3,4</p>
+<p> [0 0 1 1 1]  第二行：只能看索引0,1，不能看2,3,4</p>
+<p> [0 0 0 1 1]  第三行：只能看索引0,1,2，不能看3,4</p>
+<p> [0 0 0 0 1]  第四行：只能看索引0,1,2,3，不能看4</p>
+<p> [0 0 0 0 0]] 第五行：全都能看</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">DecoderLayer</span>(nn.Module):</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self</span>):</span><br><span class="line">        <span class="built_in">super</span>(DecoderLayer, self).__init__()</span><br><span class="line">        self.dec_self_attn = MultiHeadAttention()</span><br><span class="line">        self.dec_enc_attn = MultiHeadAttention()</span><br><span class="line">        self.pos_ffn = PoswiseFeedForwardNet()</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">forward</span>(<span class="params">self, dec_inputs, enc_outputs, dec_self_attn_mask, dec_enc_attn_mask</span>):</span><br><span class="line">        dec_outputs, dec_self_attn = self.dec_self_attn(dec_inputs, dec_inputs, dec_inputs, dec_self_attn_mask)</span><br><span class="line">        dec_outputs, dec_enc_attn = self.dec_enc_attn(dec_outputs, enc_outputs, enc_outputs, dec_enc_attn_mask)</span><br><span class="line">        dec_outputs = self.pos_ffn(dec_outputs)</span><br><span class="line">        <span class="keyword">return</span> dec_outputs, dec_self_attn, dec_enc_attn</span><br></pre></td></tr></table></figure>
+<ul>
+<li><code>self.dec_self_attn</code>：这个是先做了一个自我回顾，$Q, K, V$ 全部来自 <code>dec_inputs</code>（即目标语言序列 “S I want a beer”）。并且使用的是<code>dec_self_attn_mask</code>这个上三角矩阵。这是在让模型在产生当前单词时，能够参考已经生成出来的单词。因为有了上三角掩码，模型在这一步只能看到历史信息，不能偷看后面的结果。</li>
+<li><code>self.dec_enc_attn</code>：这一步是在做交叉注意力，上一步产生的<code>dec_outputs</code>作为$Q$ (Query)，<code>enc_outputs</code>作为$K$ (Key) 和 $V$ (Value)，代表通过Encoder后原文（德语）的所有特征信息。注意这里的<code>dec_enc_attn_mask</code>掩码只负责遮住原文里的 P (Padding)，不需要遮住未来，因为之后的句子本身就看不到。这里就是真的在做翻译了，模型拿着已经翻译出的英语单词作为搜索词，去德语原文里寻找最相关的词（比如翻译 “beer” 时，它会去原文里定位到 “bier”）。</li>
+<li><code>self.pos_ffn</code>：这个是做了一个全连接，将整合的结果进入到前馈神经网络（MLP）来对融合后的特征进行非线性映射和进一步升维提取</li>
+</ul>
+<p>Encoder层和Decoder层对比：</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>特性</th>
+<th>EncoderLayer</th>
+<th>DecoderLayer</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>层数</td>
+<td>2 层 (Self-Attn + FFN)</td>
+<td>3 层 (Self-Attn + Cross-Attn + FFN)</td>
+</tr>
+<tr>
+<td>掩码</td>
+<td>只遮 Padding</td>
+<td>Self-Attn 遮未来的词汇；Cross-Attn 遮原文的 Padding</td>
+</tr>
+<tr>
+<td>数据源</td>
+<td>纯粹的源语言</td>
+<td>混合源语言（K, V）和目标语言（Q）</td>
+</tr>
+</tbody>
+</table>
+</div>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Decoder</span>(nn.Module):</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self</span>):</span><br><span class="line">        <span class="built_in">super</span>(Decoder, self).__init__()</span><br><span class="line">        self.tgt_emb = nn.Embedding(tgt_vocab_size, d_model)</span><br><span class="line">        self.pos_emb = nn.Embedding.from_pretrained(get_sinusoid_encoding_table(tgt_len+<span class="number">1</span>, d_model),freeze=<span class="literal">True</span>)</span><br><span class="line">        self.layers = nn.ModuleList([DecoderLayer() <span class="keyword">for</span> _ <span class="keyword">in</span> <span class="built_in">range</span>(n_layers)])</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">forward</span>(<span class="params">self, dec_inputs, enc_inputs, enc_outputs</span>): <span class="comment"># dec_inputs : [batch_size x target_len]</span></span><br><span class="line">        dec_outputs = self.tgt_emb(dec_inputs) + self.pos_emb(torch.LongTensor([[<span class="number">5</span>,<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>]]))</span><br><span class="line">        dec_self_attn_pad_mask = get_attn_pad_mask(dec_inputs, dec_inputs)</span><br><span class="line">        dec_self_attn_subsequent_mask = get_attn_subsequent_mask(dec_inputs)</span><br><span class="line">        dec_self_attn_mask = torch.gt((dec_self_attn_pad_mask + dec_self_attn_subsequent_mask), <span class="number">0</span>)</span><br><span class="line"></span><br><span class="line">        dec_enc_attn_mask = get_attn_pad_mask(dec_inputs, enc_inputs)</span><br><span class="line"></span><br><span class="line">        dec_self_attns, dec_enc_attns = [], []</span><br><span class="line">        <span class="keyword">for</span> layer <span class="keyword">in</span> self.layers:</span><br><span class="line">            dec_outputs, dec_self_attn, dec_enc_attn = layer(dec_outputs, enc_outputs, dec_self_attn_mask, dec_enc_attn_mask)</span><br><span class="line">            dec_self_attns.append(dec_self_attn)</span><br><span class="line">            dec_enc_attns.append(dec_enc_attn)</span><br><span class="line">        <span class="keyword">return</span> dec_outputs, dec_self_attns, dec_enc_attns</span><br></pre></td></tr></table></figure>
+<p>这个和Encoder类很像，它把多个 DecoderLayer 堆叠起来，并初始化目标词向量。</p>
+<ul>
+<li><code>torch.gt</code>：gt 是 “Greater Than” 的缩写，先将两张矩阵相加,相加后，只要某个位置原本在任意一张矩阵里是 1，加完后的值就会是 1 或 2,也就大于0，并将其转换为布尔值。大于0的是True，小于0是False。这样就能整合pad的掩码以及遮掉上三角矩阵的掩码，这就保证了模型在自注意力阶段既不会看 P，也不会看未来的词。</li>
+<li><code>dec_enc_attn_mask</code>：遮住的是 <code>enc_inputs</code> 里的 P，为了 <code>DecoderLayer</code> 里的第二层注意力准备的。</li>
+<li>for循环同样是在精炼语义，最后整合Dcoder 对这句德语的最终理解结果。</li>
+</ul>
+<h3 id="Transformer主类"><a href="#Transformer主类" class="headerlink" title="Transformer主类"></a>Transformer主类</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Transformer</span>(nn.Module):</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self</span>):</span><br><span class="line">        <span class="built_in">super</span>(Transformer, self).__init__()</span><br><span class="line">        self.encoder = Encoder()</span><br><span class="line">        self.decoder = Decoder()</span><br><span class="line">        <span class="comment"># 最后的线性投影层：将向量打回词表大小</span></span><br><span class="line">        self.projection = nn.Linear(d_model, tgt_vocab_size, bias=<span class="literal">False</span>)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">forward</span>(<span class="params">self, enc_inputs, dec_inputs</span>):</span><br><span class="line">        <span class="comment"># 第一步：原文进，输出特征</span></span><br><span class="line">        enc_outputs, enc_self_attns = self.encoder(enc_inputs)</span><br><span class="line">        <span class="comment"># 第二步：译文前缀+原文特征进入，生成特征</span></span><br><span class="line">        dec_outputs, dec_self_attns, dec_enc_attns = self.decoder(dec_inputs, enc_inputs, enc_outputs)</span><br><span class="line">        <span class="comment"># 第三步：将 [batch, len, 512] 映射为 [batch, len, 7]</span></span><br><span class="line">        dec_logits = self.projection(dec_outputs) <span class="comment"># dec_logits : [batch_size x src_vocab_size x tgt_vocab_size]</span></span><br><span class="line">        <span class="comment"># 第四步：变形为 [batch*len, 7] 方便计算交叉熵损失，view是在缝合前两个维度</span></span><br><span class="line">        <span class="keyword">return</span> dec_logits.view(-<span class="number">1</span>, dec_logits.size(-<span class="number">1</span>)), enc_self_attns, dec_self_attns, dec_enc_attns</span><br></pre></td></tr></table></figure>
+<h2 id="画图函数"><a href="#画图函数" class="headerlink" title="画图函数"></a>画图函数</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">showgraph</span>(<span class="params">attn,name</span>):</span><br><span class="line">    <span class="comment"># 传入一个注意力矩阵，当然一个三个维度，第一个维度表示是哪一个注意力头，这里选取 [-1] 代表取最后一层的输出，因为最后一层的理解通常最深刻。</span></span><br><span class="line">    attn = attn[-<span class="number">1</span>].squeeze(<span class="number">0</span>)[<span class="number">0</span>] <span class="comment"># squeeze(0)：去掉 Batch 维度（即从 [1, 8, 5, 5] 变成 [8, 5, 5]）。并且取了第一个头的注意力分数</span></span><br><span class="line">    attn = attn.data.numpy()</span><br><span class="line"></span><br><span class="line">    fig = plt.figure(figsize=(n_heads, n_heads))</span><br><span class="line">    ax = fig.add_subplot(<span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>)</span><br><span class="line">    im = ax.matshow(attn, cmap=<span class="string">&#x27;viridis&#x27;</span>) <span class="comment"># 把矩阵里的权重数值（0 到 1 之间）映射成颜色（紫色到黄色）。颜色越亮（趋向黄色），代表注意力权重越高。</span></span><br><span class="line"></span><br><span class="line">    ax.set_xticks(<span class="built_in">range</span>(<span class="built_in">len</span>(sentences[<span class="number">0</span>].split())))</span><br><span class="line">    ax.set_yticks(<span class="built_in">range</span>(<span class="built_in">len</span>(sentences[<span class="number">2</span>].split())))</span><br><span class="line">    <span class="comment"># 坐标轴的数字索引换成真正的单词</span></span><br><span class="line">    ax.set_xticklabels(sentences[<span class="number">0</span>].split(), rotation=<span class="number">90</span>)</span><br><span class="line">    ax.set_yticklabels(sentences[<span class="number">2</span>].split())</span><br><span class="line"></span><br><span class="line">    plt.colorbar(im)</span><br><span class="line">    plt.savefig(name+<span class="string">&#x27;attention.png&#x27;</span>)</span><br><span class="line">    plt.show()</span><br></pre></td></tr></table></figure>
+<h2 id="模型训练与结果可视化"><a href="#模型训练与结果可视化" class="headerlink" title="模型训练与结果可视化"></a>模型训练与结果可视化</h2><p>随机种子函数</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">set_seed</span>(<span class="params">seed=<span class="number">2026</span></span>):</span><br><span class="line">    <span class="keyword">import</span> random</span><br><span class="line">    random.seed(seed)                          <span class="comment"># 1. 锁定 Python 原生随机数</span></span><br><span class="line">    np.random.seed(seed)                       <span class="comment"># 2. 锁定 NumPy 随机数</span></span><br><span class="line">    torch.manual_seed(seed)                    <span class="comment"># 3. 锁定 CPU 上的 PyTorch</span></span><br><span class="line">    torch.cuda.manual_seed(seed)               <span class="comment"># 4. 锁定 GPU 上的 PyTorch</span></span><br><span class="line">    torch.cuda.manual_seed_all(seed)           <span class="comment"># 5. 如果使用多块 GPU，全锁定</span></span><br><span class="line">    <span class="comment"># 6. 确定性运算（会稍微降低一点点训练速度，但能保证结果一模一样）</span></span><br><span class="line">    torch.backends.cudnn.deterministic = <span class="literal">True</span></span><br><span class="line">    torch.backends.cudnn.benchmark = <span class="literal">False</span></span><br><span class="line"></span><br><span class="line">set_seed(<span class="number">2026</span>) <span class="comment"># 调用函数，设置一个数字</span></span><br></pre></td></tr></table></figure>
+<p>初始化模型</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">model = Transformer()</span><br></pre></td></tr></table></figure>
+<p>在这之前要先讲sentences进行数值化</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">make_batch</span>(<span class="params">sentences</span>):</span><br><span class="line">    input_batch = [[src_vocab[n] <span class="keyword">for</span> n <span class="keyword">in</span> sentences[<span class="number">0</span>].split()]]</span><br><span class="line">    output_batch = [[tgt_vocab[n] <span class="keyword">for</span> n <span class="keyword">in</span> sentences[<span class="number">1</span>].split()]]</span><br><span class="line">    target_batch = [[tgt_vocab[n] <span class="keyword">for</span> n <span class="keyword">in</span> sentences[<span class="number">2</span>].split()]]</span><br><span class="line">    <span class="keyword">return</span> torch.LongTensor(input_batch), torch.LongTensor(output_batch), torch.LongTensor(target_batch)</span><br></pre></td></tr></table></figure>
+<p>交叉熵作为损失函数，Adam作为优化器</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">criterion = nn.CrossEntropyLoss(ignore_index=<span class="number">0</span>)</span><br><span class="line">optimizer = optim.Adam(model.parameters(), lr=<span class="number">0.0001</span>) <span class="comment"># 调小一点</span></span><br><span class="line">enc_inputs, dec_inputs, target_batch = make_batch(sentences) <span class="comment"># 数值化原始句子</span></span><br><span class="line">enc_inputs, dec_inputs, target_batch</span><br></pre></td></tr></table></figure>
+<p>输出结果：</p>
+<pre><code>(tensor([[1, 2, 3, 4, 0]]),
+ tensor([[5, 1, 2, 3, 4]]),
+ tensor([[1, 2, 3, 4, 6]]))
+</code></pre><p>模型的训练部分：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> epoch <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">100</span>):  <span class="comment"># 把上限设高一点，交给早停来控制</span></span><br><span class="line">    optimizer.zero_grad()</span><br><span class="line">    outputs, enc_self_attns, dec_self_attns, dec_enc_attns = model(enc_inputs, dec_inputs)</span><br><span class="line">    loss = criterion(outputs, target_batch.contiguous().view(-<span class="number">1</span>))</span><br><span class="line">    </span><br><span class="line">    <span class="comment"># 打印进度</span></span><br><span class="line">    <span class="keyword">if</span> (epoch + <span class="number">1</span>) % <span class="number">10</span> == <span class="number">0</span>:</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&#x27;Epoch:&#x27;</span>, <span class="string">&#x27;%04d&#x27;</span> % (epoch + <span class="number">1</span>), <span class="string">&#x27;cost =&#x27;</span>, <span class="string">&#x27;&#123;:.6f&#125;&#x27;</span>.<span class="built_in">format</span>(loss))</span><br><span class="line"></span><br><span class="line">    <span class="comment"># --- 早停 ---</span></span><br><span class="line">    <span class="keyword">if</span> loss &lt; <span class="number">0.0001</span>:</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&#x27;已达到预期精度，在第 %d 轮提前停止训练&#x27;</span> % (epoch + <span class="number">1</span>),<span class="string">&#x27;cost =&#x27;</span>, <span class="string">&#x27;&#123;:.6f&#125;&#x27;</span>.<span class="built_in">format</span>(loss))</span><br><span class="line">        <span class="keyword">break</span></span><br><span class="line"></span><br><span class="line">    loss.backward()</span><br><span class="line">    optimizer.step()</span><br></pre></td></tr></table></figure>
+<p>多训练几轮，反正就一句话，设置loss为0.0001就停，结果：</p>
+<pre><code>Epoch: 0010 cost = 0.001163
+Epoch: 0020 cost = 0.000583
+Epoch: 0030 cost = 0.000113
+已达到预期精度，在第 31 轮提前停止训练 cost = 0.000100
+</code></pre><p>测试部分</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Test</span></span><br><span class="line">predict, _, _, _ = model(enc_inputs, dec_inputs)</span><br><span class="line">predict = predict.data.<span class="built_in">max</span>(<span class="number">1</span>, keepdim=<span class="literal">True</span>)[<span class="number">1</span>]</span><br><span class="line"><span class="built_in">print</span>(sentences[<span class="number">0</span>], <span class="string">&#x27;-&gt;&#x27;</span>, [number_dict[n.item()] <span class="keyword">for</span> n <span class="keyword">in</span> predict.squeeze()])</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&#x27;first head of last state enc_self_attns&#x27;</span>)</span><br><span class="line">showgraph(enc_self_attns,<span class="string">&#x27;enc_self_attns&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&#x27;first head of last state dec_self_attns&#x27;</span>)</span><br><span class="line">showgraph(dec_self_attns,<span class="string">&#x27;dec_self_attns&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&#x27;first head of last state dec_enc_attns&#x27;</span>)</span><br><span class="line">showgraph(dec_enc_attns,<span class="string">&#x27;dec_enc_attns&#x27;</span>)</span><br></pre></td></tr></table></figure>
+<p>结果</p>
+<pre><code>ich mochte ein bier P -&gt; [&#39;i&#39;, &#39;want&#39;, &#39;a&#39;, &#39;beer&#39;, &#39;E&#39;]
+first head of last state enc_self_attns
+</code></pre><p>这会跑出来3个图。</p>
+<p>第一张图：</p>
+<p><img src="/2026/01/24/%E6%B3%A8%E6%84%8F%E5%8A%9B%E6%9C%BA%E5%88%B6/image-20260127143601965.png" alt="image-20260127143601965" style="zoom: 50%;"></p>
+<p>Encoder 自注意力图。展示的是德语单词之间的自我关联（自注意）情况。每个词在关注自己的同时，也对整句的其他词有均匀的亮度分布。最后的 P（Padding）列是黑色的，说明 get_attn_pad_mask 成功工作了，模型忽略了无意义的填充符。</p>
+<p>第二张图：</p>
+<p><img src="/2026/01/24/%E6%B3%A8%E6%84%8F%E5%8A%9B%E6%9C%BA%E5%88%B6/image-20260127143622426.png" alt="image-20260127143622426" style="zoom:50%;"></p>
+<p>Decoder 自注意力图。右上角完全黑暗的部分说明了代码中<code>get_attn_subsequent_mask</code>得到的上三角矩阵起作用了。</p>
+<p>第三张图：</p>
+<p><img src="/2026/01/24/%E6%B3%A8%E6%84%8F%E5%8A%9B%E6%9C%BA%E5%88%B6/image-20260127143633214.png" alt="image-20260127143633214" style="zoom:50%;"></p>
+<p>Decoder-Encoder 跨注意力图。有对角线对齐趋势，这说明成功地在德语原文中定位到了对应的词汇。</p>
+<h1 id="关于TIme-Series-Library库的启动脚本的超参数解读"><a href="#关于TIme-Series-Library库的启动脚本的超参数解读" class="headerlink" title="关于TIme-Series-Library库的启动脚本的超参数解读"></a>关于TIme-Series-Library库的启动脚本的超参数解读</h1><p><a target="_blank" rel="noopener" href="https://github.com/thuml/Time-Series-Library/tree/main">thuml/Time-Series-Library: A Library for Advanced Deep Time Series Models for General Time Series Analysis.</a></p>
 <p>视频中涉及到的概念（$Q, K, V$, 多头注意、Embedding、参数量），在run.py里都有对应的超参数。</p>
 <ul>
-<li><strong><code>--d_model</code> </strong>:<ul>
+<li><code>--d_model</code> :<ul>
 <li>这就是一直在说的词向量维度 $d$。</li>
 <li>它决定了每一个 Token 向量有多长。 $W_Q, W_K, W_V$ 矩阵的形状，就是由这个数字决定的。</li>
 </ul>
 </li>
-<li><p><strong><code>--e_layers</code> / <code>--d_layers</code> </strong>:</p>
+<li><p><code>--e_layers</code> / <code>--d_layers</code> :</p>
 <ul>
 <li>Encoder（编码器）和 Decoder（解码器）的层数。即信息交换与模型推理的地方。</li>
 <li>GPT-3 有 96 层，且这96层全是解码器的层数。</li>
 </ul>
 </li>
-<li><p><strong><code>--n_heads</code> </strong>:</p>
+<li><p><code>--n_heads</code> :</p>
 <ul>
 <li>多头注意力（Multi-head Attention）。</li>
 <li>这代表模型会同时开启 4 个头并行计算。每个头都有自己独立的 $W_Q, W_K, W_V$，分别去寻找不同的规律（比如头1找周期性，头2找趋势）。</li>
 </ul>
 </li>
-<li><p><strong><code>--d_ff</code></strong>:</p>
+<li><p><code>--d_ff</code>:</p>
 <ul>
 <li>前馈神经网络（Feed Forward）的维度。</li>
 <li>这就是Up-projection。在注意力交换完情报后，向量会进入这个2048维的空间进行非线性变换。</li>
 </ul>
 </li>
-<li><p><strong><code>--enc_in</code> </strong>:</p>
+<li><p><code>--enc_in</code> :</p>
 <ul>
 <li>输入特征数。</li>
 <li>这代表你的初始元素，对应了嵌入前的初始文本。比如有 7 种时间序列数据，Embedding 层会负责把这 7 个维度变成 <code>d_model</code>。</li>
 </ul>
 </li>
-<li><p><strong><code>--embed</code> </strong>:</p>
+<li><p><code>--embed</code> :</p>
 <ul>
 <li>对应Embedding 的方式。</li>
 <li>这决定了模型如何把“时间”这个抽象概念编码进向量里。</li>
 </ul>
 </li>
-<li><p><strong><code>--dropout</code> (0.1)</strong>: 在加权求和时，随机丢弃 10% 的神经元，防止模型过拟合。</p>
+<li><p><code>--dropout</code> (0.1): 在加权求和时，随机丢弃 10% 的神经元，防止模型过拟合。</p>
 </li>
-<li><strong><code>--activation</code> (‘gelu’)</strong>: 这是激活函数。在 $V$ 向量搬运完信息后，给“思考”过程增加一点非线性的逻辑，GPT 系列通常都是GELU。</li>
+<li><code>--activation</code> (‘gelu’): 这是激活函数。在 $V$ 向量搬运完信息后，给“思考”过程增加一点非线性的逻辑，GPT 系列通常都是GELU。</li>
 </ul>
 <p>时间序列和文本任务在 Transformer 的应用上，存在几个核心的策略差异，文本任务（如 GPT）是目的是压缩，他文本原始维度是词表大小（5万+），d_model给的是1.2万，做特征降维和语义聚合。</p>
 <p>但是时间序列，原始维度一般很小，达不到$10^4$级别，我做的数据集中最多也才26维。直接对 26 个维度做注意力计算，信息量太薄，模型很难学到复杂的非线性关系。因此一般会通过 Embedding 层将 26 维投影到 64 维。在时间序列论文（如 TimesNet, Informer, Autoformer）中，通常 d_model 设置为原始特征数的 2 到 4 倍 是比较稳妥的起点。所以在试的时候 d_model 从默认的 512 改成 64,48,32比较合适。当然这样做模型中所有 $W_Q, W_K, W_V$ 矩阵的面积缩小不少，跑的还是挺快的。</p>
 <p>公式中$\sqrt{d_k}$ 的计算：在 <code>d_model=64</code>, <code>n_heads=4</code> 的情况下，每一个“头”分到的向量维度 $d_k$ 是16个，因为$d_k$ 代表Key向量的维度。那么由<code>d_model=64</code>得每一个头分到的是64/4=16个。</p>
-</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="http://example.com">z01prime</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a target="_blank" rel="noopener" href="http://z01prime.github.io/2026/01/24/注意力机制/">http://z01prime.github.io/2026/01/24/注意力机制/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://example.com" target="_blank">z01prime</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/Transformer/">Transformer</a></div><div class="post_share"><div class="social-share" data-image="https://s2.loli.net/2025/03/06/EPO2kshMSWTZoHe.webp" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="next-post pull-full"><a href="/2026/01/16/%E4%B8%89%E8%93%9D%E4%B8%80%E6%A3%95%EF%BC%9A%E5%82%85%E9%87%8C%E5%8F%B6%E5%8F%98%E6%8D%A2/" title="三蓝一棕：傅里叶变换"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">三蓝一棕：傅里叶变换</div></div></a></div></nav><hr class="custom-hr"/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div id="gitalk-container"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="https://s2.loli.net/2025/03/06/EPO2kshMSWTZoHe.webp" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">z01prime</div><div class="author-info__description"></div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">37</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">22</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">8</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/z01prime"><i class="fab fa-github"></i><span>我的github主页</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/z01prime" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="mailto:z7296091@gmail.com" target="_blank" title="Email"><i class="fas fa-envelope"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">加载慢可以挂个梯子试试捏</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%87%8D%E8%A6%81%E7%9A%84%E6%A6%82%E5%BF%B5"><span class="toc-number">1.</span> <span class="toc-text">重要的概念</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%B3%A8%E6%84%8F%E5%8A%9B%E6%9C%BA%E5%88%B6%E7%9A%84%E7%9B%B4%E8%A7%82%E7%90%86%E8%A7%A3"><span class="toc-number">2.</span> <span class="toc-text">注意力机制的直观理解</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Token"><span class="toc-number">2.1.</span> <span class="toc-text">Token</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B0%86Token%E5%85%B3%E8%81%94%E5%88%B0%E5%B5%8C%E5%85%A5%E5%90%91%E9%87%8F%E7%9A%84%E9%AB%98%E7%BB%B4%E5%90%91%E9%87%8F%E3%80%82"><span class="toc-number">2.2.</span> <span class="toc-text">将Token关联到嵌入向量的高维向量。</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#W-Q-%E7%9F%A9%E9%98%B5"><span class="toc-number">2.3.</span> <span class="toc-text">$W_Q$矩阵</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#W-K-%E7%9F%A9%E9%98%B5"><span class="toc-number">2.4.</span> <span class="toc-text">$W_K$矩阵</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8E%A9%E7%A0%81"><span class="toc-number">2.5.</span> <span class="toc-text">掩码</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#W-V-%E7%9F%A9%E9%98%B5"><span class="toc-number">2.6.</span> <span class="toc-text">$W_V$矩阵</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%A4%9A%E5%B1%82%E6%84%9F%E7%9F%A5%E6%9C%BA-%E5%89%8D%E9%A6%88%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C"><span class="toc-number">3.</span> <span class="toc-text">多层感知机&#x2F;前馈神经网络</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#GPT3%E7%9A%84%E5%8F%82%E6%95%B0%E9%87%8F%E8%AE%A1%E7%AE%97"><span class="toc-number">4.</span> <span class="toc-text">GPT3的参数量计算</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%A1%A5%E5%85%85%EF%BC%9A%E5%85%B3%E4%BA%8ETIme-Series-Library%E5%BA%93%E7%9A%84%E5%90%AF%E5%8A%A8%E8%84%9A%E6%9C%AC%E7%9A%84%E8%B6%85%E5%8F%82%E6%95%B0%E8%A7%A3%E8%AF%BB"><span class="toc-number">5.</span> <span class="toc-text">补充：关于TIme-Series-Library库的启动脚本的超参数解读</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2026/01/24/%E6%B3%A8%E6%84%8F%E5%8A%9B%E6%9C%BA%E5%88%B6/" title="注意力机制">注意力机制</a><time datetime="2026-01-24T02:30:50.000Z" title="发表于 2026-01-24 10:30:50">2026-01-24</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2026/01/16/%E4%B8%89%E8%93%9D%E4%B8%80%E6%A3%95%EF%BC%9A%E5%82%85%E9%87%8C%E5%8F%B6%E5%8F%98%E6%8D%A2/" title="三蓝一棕：傅里叶变换">三蓝一棕：傅里叶变换</a><time datetime="2026-01-16T02:16:47.000Z" title="发表于 2026-01-16 10:16:47">2026-01-16</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/12/22/%E5%85%B3%E4%BA%8E%E9%9B%85%E6%80%9D/" title="关于雅思">关于雅思</a><time datetime="2025-12-22T02:29:43.000Z" title="发表于 2025-12-22 10:29:43">2025-12-22</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/04/21/2021SCCPC/" title="2021SCCPC">2021SCCPC</a><time datetime="2025-04-21T06:40:56.000Z" title="发表于 2025-04-21 14:40:56">2025-04-21</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/12/31/2024CCPC%E5%B1%B1%E4%B8%9C%E9%82%80%E8%AF%B7%E8%B5%9B/" title="2024CCPC山东邀请赛">2024CCPC山东邀请赛</a><time datetime="2024-12-31T07:43:10.000Z" title="发表于 2024-12-31 15:43:10">2024-12-31</time></div></div></div></div></div></div></main><footer id="footer" style="background-image: url('https://source.fomal.cc/img/dm8.webp')"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2026 By z01prime</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="直达评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"><script>if (!window.MathJax) {
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="http://example.com">z01prime</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a target="_blank" rel="noopener" href="http://z01prime.github.io/2026/01/24/注意力机制/">http://z01prime.github.io/2026/01/24/注意力机制/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://example.com" target="_blank">z01prime</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/Transformer/">Transformer</a></div><div class="post_share"><div class="social-share" data-image="https://s2.loli.net/2025/03/06/EPO2kshMSWTZoHe.webp" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="next-post pull-full"><a href="/2026/01/16/%E4%B8%89%E8%93%9D%E4%B8%80%E6%A3%95%EF%BC%9A%E5%82%85%E9%87%8C%E5%8F%B6%E5%8F%98%E6%8D%A2/" title="三蓝一棕：傅里叶变换"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">三蓝一棕：傅里叶变换</div></div></a></div></nav><hr class="custom-hr"/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div id="gitalk-container"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="https://s2.loli.net/2025/03/06/EPO2kshMSWTZoHe.webp" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">z01prime</div><div class="author-info__description"></div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">37</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">22</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">8</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/z01prime"><i class="fab fa-github"></i><span>我的github主页</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/z01prime" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="mailto:z7296091@gmail.com" target="_blank" title="Email"><i class="fas fa-envelope"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">加载慢可以挂个梯子试试捏</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%87%8D%E8%A6%81%E7%9A%84%E6%A6%82%E5%BF%B5"><span class="toc-number">1.</span> <span class="toc-text">重要的概念</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%B3%A8%E6%84%8F%E5%8A%9B%E6%9C%BA%E5%88%B6%E7%9A%84%E7%9B%B4%E8%A7%82%E7%90%86%E8%A7%A3"><span class="toc-number">2.</span> <span class="toc-text">注意力机制的直观理解</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Token"><span class="toc-number">2.1.</span> <span class="toc-text">Token</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B0%86Token%E5%85%B3%E8%81%94%E5%88%B0%E5%B5%8C%E5%85%A5%E5%90%91%E9%87%8F%E7%9A%84%E9%AB%98%E7%BB%B4%E5%90%91%E9%87%8F%E3%80%82"><span class="toc-number">2.2.</span> <span class="toc-text">将Token关联到嵌入向量的高维向量。</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#W-Q-%E7%9F%A9%E9%98%B5"><span class="toc-number">2.3.</span> <span class="toc-text">$W_Q$矩阵</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#W-K-%E7%9F%A9%E9%98%B5"><span class="toc-number">2.4.</span> <span class="toc-text">$W_K$矩阵</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8E%A9%E7%A0%81"><span class="toc-number">2.5.</span> <span class="toc-text">掩码</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#W-V-%E7%9F%A9%E9%98%B5"><span class="toc-number">2.6.</span> <span class="toc-text">$W_V$矩阵</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%A4%9A%E5%B1%82%E6%84%9F%E7%9F%A5%E6%9C%BA-%E5%89%8D%E9%A6%88%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C"><span class="toc-number">3.</span> <span class="toc-text">多层感知机&#x2F;前馈神经网络</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#GPT3%E7%9A%84%E5%8F%82%E6%95%B0%E9%87%8F%E8%AE%A1%E7%AE%97"><span class="toc-number">4.</span> <span class="toc-text">GPT3的参数量计算</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Transformer%E6%BA%90%E7%A0%81%E8%A7%A3%E8%AF%BB"><span class="toc-number">5.</span> <span class="toc-text">Transformer源码解读</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%8E%AF%E5%A2%83"><span class="toc-number">5.1.</span> <span class="toc-text">环境</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AF%BC%E5%85%A5%E4%B8%80%E4%BA%9B%E5%8C%85"><span class="toc-number">5.2.</span> <span class="toc-text">导入一些包</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E9%9B%86"><span class="toc-number">5.3.</span> <span class="toc-text">数据集</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AF%8D%E8%A1%A8%E4%B8%8ETarget-Source%E9%95%BF%E5%BA%A6"><span class="toc-number">5.4.</span> <span class="toc-text">词表与Target&#x2F;Source长度</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AF%8D%E8%A1%A8"><span class="toc-number">5.4.1.</span> <span class="toc-text">词表</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Target-Source%E9%95%BF%E5%BA%A6"><span class="toc-number">5.4.2.</span> <span class="toc-text">Target&#x2F;Source长度</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%B6%85%E5%8F%82%E6%95%B0%E8%AE%BE%E7%BD%AE%EF%BC%9A"><span class="toc-number">5.5.</span> <span class="toc-text">超参数设置：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A8%A1%E5%9E%8B%E4%BB%A3%E7%A0%81"><span class="toc-number">5.6.</span> <span class="toc-text">模型代码</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A4%9A%E5%A4%B4%E6%B3%A8%E6%84%8F%E5%8A%9B%E6%9C%BA%E5%88%B6"><span class="toc-number">5.6.1.</span> <span class="toc-text">多头注意力机制</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%89%8D%E9%A6%88%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C"><span class="toc-number">5.6.2.</span> <span class="toc-text">前馈神经网络</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Encoder%E7%9B%B8%E5%85%B3"><span class="toc-number">5.6.3.</span> <span class="toc-text">Encoder相关</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Dncoder%E7%9B%B8%E5%85%B3"><span class="toc-number">5.6.4.</span> <span class="toc-text">Dncoder相关</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Transformer%E4%B8%BB%E7%B1%BB"><span class="toc-number">5.6.5.</span> <span class="toc-text">Transformer主类</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%94%BB%E5%9B%BE%E5%87%BD%E6%95%B0"><span class="toc-number">5.7.</span> <span class="toc-text">画图函数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A8%A1%E5%9E%8B%E8%AE%AD%E7%BB%83%E4%B8%8E%E7%BB%93%E6%9E%9C%E5%8F%AF%E8%A7%86%E5%8C%96"><span class="toc-number">5.8.</span> <span class="toc-text">模型训练与结果可视化</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%85%B3%E4%BA%8ETIme-Series-Library%E5%BA%93%E7%9A%84%E5%90%AF%E5%8A%A8%E8%84%9A%E6%9C%AC%E7%9A%84%E8%B6%85%E5%8F%82%E6%95%B0%E8%A7%A3%E8%AF%BB"><span class="toc-number">6.</span> <span class="toc-text">关于TIme-Series-Library库的启动脚本的超参数解读</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2026/01/24/%E6%B3%A8%E6%84%8F%E5%8A%9B%E6%9C%BA%E5%88%B6/" title="注意力机制">注意力机制</a><time datetime="2026-01-24T02:30:50.000Z" title="发表于 2026-01-24 10:30:50">2026-01-24</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2026/01/16/%E4%B8%89%E8%93%9D%E4%B8%80%E6%A3%95%EF%BC%9A%E5%82%85%E9%87%8C%E5%8F%B6%E5%8F%98%E6%8D%A2/" title="三蓝一棕：傅里叶变换">三蓝一棕：傅里叶变换</a><time datetime="2026-01-16T02:16:47.000Z" title="发表于 2026-01-16 10:16:47">2026-01-16</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/12/22/%E5%85%B3%E4%BA%8E%E9%9B%85%E6%80%9D/" title="关于雅思">关于雅思</a><time datetime="2025-12-22T02:29:43.000Z" title="发表于 2025-12-22 10:29:43">2025-12-22</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/04/21/2021SCCPC/" title="2021SCCPC">2021SCCPC</a><time datetime="2025-04-21T06:40:56.000Z" title="发表于 2025-04-21 14:40:56">2025-04-21</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/12/31/2024CCPC%E5%B1%B1%E4%B8%9C%E9%82%80%E8%AF%B7%E8%B5%9B/" title="2024CCPC山东邀请赛">2024CCPC山东邀请赛</a><time datetime="2024-12-31T07:43:10.000Z" title="发表于 2024-12-31 15:43:10">2024-12-31</time></div></div></div></div></div></div></main><footer id="footer" style="background-image: url('https://source.fomal.cc/img/dm8.webp')"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2026 By z01prime</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="直达评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"><script>if (!window.MathJax) {
   window.MathJax = {
     tex: {
       inlineMath: [['$', '$'], ['\\(', '\\)']],
