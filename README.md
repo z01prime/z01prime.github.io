@@ -1,1 +1,1 @@
-My personal blog,[Link]([z01prime](https://z01prime.github.io/)),welcome!
+My personal blog,[Link](https://z01prime.github.io/),welcome!
