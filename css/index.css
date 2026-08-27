@@ -179,8 +179,6 @@ template {
   display: none
 }
 .limit-one-line,
-#article-container .flink .flink-item-name,
-#article-container .flink .flink-item-desc,
 #aside-content .card-archives ul.card-archive-list > .card-archive-list-item a span,
 #aside-content .card-categories ul.card-category-list > .card-category-list-item a span,
 .site-data > a .headline,
@@ -2182,8 +2180,7 @@ figure.highlight pre .javascript .function {
   background-attachment: scroll !important;
 }
 .apple .recent-post-item,
-.apple .avatar-img,
-.apple .flink-item-icon {
+.apple .avatar-img {
   -webkit-transform: translateZ(0);
   -moz-transform: translateZ(0);
   -o-transform: translateZ(0);
@@ -2194,109 +2191,157 @@ figure.highlight pre .javascript .function {
   margin-bottom: 20px;
 }
 #article-container .flink .flink-list {
-  overflow: auto;
-  padding: 10px 10px 0;
-  text-align: center;
-}
-#article-container .flink .flink-list > .flink-list-item {
-  position: relative;
-  float: left;
-  overflow: hidden;
-  margin: 15px 7px;
-  width: calc(100% / 3 - 15px);
-  height: 90px;
-  border-radius: 8px;
-  line-height: 17px;
-  -webkit-transform: translateZ(0);
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+  padding: 12px 0;
 }
 @media screen and (max-width: 1024px) {
-  #article-container .flink .flink-list > .flink-list-item {
-    width: calc(50% - 15px) !important;
+  #article-container .flink .flink-list {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
 @media screen and (max-width: 600px) {
-  #article-container .flink .flink-list > .flink-list-item {
-    width: calc(100% - 15px) !important;
+  #article-container .flink .flink-list {
+    grid-template-columns: 1fr;
   }
 }
-#article-container .flink .flink-list > .flink-list-item:hover .flink-item-icon {
-  margin-left: -10px;
-  width: 0;
+#article-container .flink .flink-list > .flink-list-item {
+  position: relative;
+  overflow: hidden;
+  min-width: 0;
+  height: 144px;
+  border: 1px solid rgba(153,169,191,0.28);
+  border-radius: 14px;
+  background: var(--card-bg);
+  -webkit-box-shadow: 0 6px 18px rgba(0,0,0,0.06);
+  box-shadow: 0 6px 18px rgba(0,0,0,0.06);
+  -webkit-transition: -webkit-transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+  -moz-transition: -moz-transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+  -o-transition: -o-transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+  -ms-transition: -ms-transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+  transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
 }
 #article-container .flink .flink-list > .flink-list-item:before {
   position: absolute;
   top: 0;
   right: 0;
-  bottom: 0;
   left: 0;
-  z-index: -1;
-  background: var(--text-bg-hover);
+  height: 3px;
+  background: -webkit-linear-gradient(0deg, #49b1f5, #7c5cff);
+  background: -moz-linear-gradient(0deg, #49b1f5, #7c5cff);
+  background: -o-linear-gradient(0deg, #49b1f5, #7c5cff);
+  background: -ms-linear-gradient(0deg, #49b1f5, #7c5cff);
+  background: linear-gradient(90deg, #49b1f5, #7c5cff);
   content: '';
-  -webkit-transition: -webkit-transform 0.3s ease-out;
-  -moz-transition: -moz-transform 0.3s ease-out;
-  -o-transition: -o-transform 0.3s ease-out;
-  -ms-transition: -ms-transform 0.3s ease-out;
-  transition: transform 0.3s ease-out;
-  -webkit-transform: scale(0);
-  -moz-transform: scale(0);
-  -o-transform: scale(0);
-  -ms-transform: scale(0);
-  transform: scale(0);
 }
-#article-container .flink .flink-list > .flink-list-item:hover:before,
-#article-container .flink .flink-list > .flink-list-item:focus:before,
-#article-container .flink .flink-list > .flink-list-item:active:before {
-  -webkit-transform: scale(1);
-  -moz-transform: scale(1);
-  -o-transform: scale(1);
-  -ms-transform: scale(1);
-  transform: scale(1);
+#article-container .flink .flink-list > .flink-list-item:hover {
+  border-color: rgba(73,177,245,0.6);
+  -webkit-box-shadow: 0 12px 28px rgba(73,177,245,0.16);
+  box-shadow: 0 12px 28px rgba(73,177,245,0.16);
+  -webkit-transform: translateY(-4px);
+  -moz-transform: translateY(-4px);
+  -o-transform: translateY(-4px);
+  -ms-transform: translateY(-4px);
+  transform: translateY(-4px);
+}
+#article-container .flink .flink-list > .flink-list-item:hover .flink-item-name i {
+  opacity: 1;
+  -ms-filter: none;
+  filter: none;
+  -webkit-transform: translate(2px, -2px);
+  -moz-transform: translate(2px, -2px);
+  -o-transform: translate(2px, -2px);
+  -ms-transform: translate(2px, -2px);
+  transform: translate(2px, -2px);
 }
 #article-container .flink .flink-list > .flink-list-item a {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: box;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -moz-box-orient: vertical;
+  -o-box-orient: vertical;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  width: 100%;
+  height: 100%;
+  padding: 24px 22px 20px;
   color: var(--font-color);
   text-decoration: none;
 }
-#article-container .flink .flink-list > .flink-list-item a .flink-item-icon {
-  float: left;
-  overflow: hidden;
-  margin: 15px 10px;
-  width: 60px;
-  height: 60px;
-  border-radius: 35px;
-  -webkit-transition: width 0.3s ease-out;
-  -moz-transition: width 0.3s ease-out;
-  -o-transition: width 0.3s ease-out;
-  -ms-transition: width 0.3s ease-out;
-  transition: width 0.3s ease-out;
-}
-#article-container .flink .flink-list > .flink-list-item a .flink-item-icon img {
-  width: 100%;
-  height: 100%;
-  -webkit-transition: filter 375ms ease-in 0.2s, -webkit-transform 0.3s;
-  -moz-transition: filter 375ms ease-in 0.2s, -moz-transform 0.3s;
-  -o-transition: filter 375ms ease-in 0.2s, -o-transform 0.3s;
-  -ms-transition: filter 375ms ease-in 0.2s, -ms-transform 0.3s;
-  transition: filter 375ms ease-in 0.2s, transform 0.3s;
-  object-fit: cover;
-}
-#article-container .flink .flink-list > .flink-list-item a .img-alt {
-  display: none;
-}
 #article-container .flink .flink-item-name {
-  padding: 16px 10px 0 0;
-  height: 40px;
-  font-weight: bold;
-  font-size: 1.43em;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: box;
+  display: flex;
+  -webkit-box-align: start;
+  -moz-box-align: start;
+  -o-box-align: start;
+  -ms-flex-align: start;
+  -webkit-align-items: flex-start;
+  align-items: flex-start;
+  -webkit-box-pack: justify;
+  -moz-box-pack: justify;
+  -o-box-pack: justify;
+  -ms-flex-pack: justify;
+  -webkit-justify-content: space-between;
+  justify-content: space-between;
+  gap: 12px;
+  min-width: 0;
+  font-weight: 700;
+  font-size: 1.12em;
+  line-height: 1.35;
+  text-align: left;
+}
+#article-container .flink .flink-item-name span {
+  display: -webkit-box;
+  overflow: hidden;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}
+#article-container .flink .flink-item-name i {
+  -webkit-box-flex: 0;
+  -moz-box-flex: 0;
+  -o-box-flex: 0;
+  box-flex: 0;
+  -webkit-flex: none;
+  -ms-flex: none;
+  flex: none;
+  margin-top: 3px;
+  color: #49b1f5;
+  font-size: 0.78em;
+  opacity: 0.65;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=65)";
+  filter: alpha(opacity=65);
+  -webkit-transition: opacity 0.25s ease, -webkit-transform 0.25s ease;
+  -moz-transition: opacity 0.25s ease, -moz-transform 0.25s ease;
+  -o-transition: opacity 0.25s ease, -o-transform 0.25s ease;
+  -ms-transition: opacity 0.25s ease, -ms-transform 0.25s ease;
+  transition: opacity 0.25s ease, transform 0.25s ease;
 }
 #article-container .flink .flink-item-desc {
-  padding: 16px 10px 16px 0;
-  height: 50px;
-  font-size: 0.93em;
-}
-#article-container .flink .flink-name {
-  margin-bottom: 5px;
-  font-weight: bold;
-  font-size: 1.5em;
+  display: -webkit-box;
+  overflow: hidden;
+  margin-top: 12px;
+  color: var(--font-color);
+  font-size: 0.9em;
+  line-height: 1.55;
+  text-align: left;
+  opacity: 0.72;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=72)";
+  filter: alpha(opacity=72);
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
 }
 #recent-posts > .recent-post-item:not(:first-child) {
   margin-top: 20px;
